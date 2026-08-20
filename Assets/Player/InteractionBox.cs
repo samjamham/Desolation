@@ -1,0 +1,27 @@
+using UnityEngine;
+
+public class InteractionBox : MonoBehaviour
+{
+    private IFirstPersonInteractable interactableInRange = null;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out IFirstPersonInteractable interactable) && interactable.CanInteract())
+        {
+            interactableInRange = interactable;
+            //InteractionIcon.SetActive(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out IFirstPersonInteractable interactable) && interactable == interactableInRange)
+        {
+            interactableInRange = null;
+            //InteractionIcon.SetActive(false);
+        }
+    }
+
+    public void MapInteract()
+    {
+        interactableInRange?.Interact();
+    }
+}
