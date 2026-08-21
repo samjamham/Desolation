@@ -13,14 +13,20 @@ public class ScryMapDrag : MonoBehaviour
     private GameObject ScryMap;
     private GameObject ZoomPivot;
 
+    private float ZoomLevel;
+    [SerializeField, Range(0.1f, 2f)]
+    private float MaxScale;
+    [SerializeField, Range(0.1f, 2f)]
+    private float MinScale;
+
+
+
     private bool MouseHeld = false;
     private Vector2 MouseLastFrame = Vector2.zero;
     private Vector2 MouseMovement = Vector2.zero;
     private Vector3 MousePosition = Vector2.zero;
-    [SerializeField, Range( 0.1f, 2f)]
-    private float MaxScale;    
-    [SerializeField, Range( 0.1f, 2f)]
-    private float MinScale;
+
+
 
     private float Rotation = 0;
 
@@ -33,6 +39,8 @@ public class ScryMapDrag : MonoBehaviour
     {
         ScryMap = GameObject.FindGameObjectWithTag("ScryMap");
         ZoomPivot = ScryMap.transform.GetChild(0).gameObject;
+
+        ZoomLevel = ScryMap.transform.localScale.x;
 
     }
 
@@ -97,15 +105,15 @@ public class ScryMapDrag : MonoBehaviour
         ScaleAmount += value.Get<Vector2>().y * 0.1f;
 
         ////
-        float NewScaleXZ = ScryMap.transform.localScale.x * ScaleAmount;
-        NewScaleXZ = Mathf.Clamp(NewScaleXZ, MinScale, MaxScale);
+        ZoomLevel *= ScaleAmount;
+        ZoomLevel = Mathf.Clamp(ZoomLevel, MinScale, MaxScale);
         float OldRange = (MaxScale - MinScale); //NewScaleY changes by %90
         float NewRange = ((MaxScale) * 0.9f - (MinScale * 1.1f));
-        float NewScaleY = (((NewScaleXZ - MinScale) * NewRange) / OldRange) + (MinScale * 1.1f);
+        float NewScaleY = (((ZoomLevel - MinScale) * NewRange) / OldRange) + (MinScale * 1.1f);
         ////
         Shader.SetGlobalFloat("_Zoomies", NewScaleY);
 
-        Vector3 NewScale = new Vector3(NewScaleXZ, NewScaleY, NewScaleXZ);
+        Vector3 NewScale = new Vector3(ZoomLevel, NewScaleY, ZoomLevel);
 
         scaleAroundMouse(NewScale);
     }

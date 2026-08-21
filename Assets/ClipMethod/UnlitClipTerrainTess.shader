@@ -114,9 +114,9 @@ Shader "Custom/UnlitClipTerrainTess"
                 float edgeFactor1 = saturate(1.0f - (dist1 - 1));
                 float edgeFactor2 = saturate(1.0f - (dist2 - 1));
 
-                f.edge[0] = max(edgeFactor0 * _TessellationAmount, 1);
-                f.edge[1] = max(edgeFactor1 * _TessellationAmount, 1);
-                f.edge[2] = max(edgeFactor2 * _TessellationAmount, 1);
+                f.edge[0] = max(edgeFactor0 * _TessellationAmount * pow(_Zoomies,2), 1);
+                f.edge[1] = max(edgeFactor1 * _TessellationAmount * pow(_Zoomies,2), 1);
+                f.edge[2] = max(edgeFactor2 * _TessellationAmount * pow(_Zoomies,2), 1);
 
                 f.inside = (f.edge[0] + f.edge[1] + f.edge[2]) / 3.0f;
 
