@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,7 +17,7 @@ public class PlayerMovementControls : MonoBehaviour
     private Vector2 moveInput;
     private float Gravity;
     private float yVelocity;
-    private Vector3 zxVelocity;
+    private Vector3 xzVelocity;
     private bool Dojump; 
 
     [SerializeField]
@@ -39,8 +40,8 @@ public class PlayerMovementControls : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 MoveDirection = new Vector3(0, 0, 0);
-        zxVelocity = this.transform.forward * moveInput.y + this.transform.right * moveInput.x;
-        MoveDirection += zxVelocity;
+        xzVelocity = this.transform.forward * moveInput.y + this.transform.right * moveInput.x;
+        MoveDirection += xzVelocity;
 
         if (myCharacterController.isGrounded && Dojump)
         {
@@ -69,7 +70,14 @@ public class PlayerMovementControls : MonoBehaviour
         if (!Dojump)
         {
             Dojump = true;
+            StartCoroutine(JumpBuffer());
         }
+    }
+
+    IEnumerator JumpBuffer()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Dojump = false;
     }
 
     public Action MoveToNextShift;
