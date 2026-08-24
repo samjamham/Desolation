@@ -1,0 +1,5 @@
+◯	Scry room
+⛌	Pantry
+⛌	Water purifier
+⛌	Bedroom(s)
+?	Barracks

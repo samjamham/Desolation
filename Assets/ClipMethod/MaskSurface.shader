@@ -8,7 +8,7 @@ Shader "Custom/MaskSurface"
 
     SubShader
     {
-        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline"  "Queue"="Geometry-3"}
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline"  "Queue"="Geometry+1"}
         zwrite off
         ColorMask RGB
         Stencil

@@ -80,9 +80,9 @@ public class PlayerMovementControls : MonoBehaviour
         Dojump = false;
     }
 
-    public Action MoveToNextShift;
+    public Action MoveToNextCycle;
     void OnNextShift(InputValue value)
     {
-        MoveToNextShift?.Invoke();
+        MoveToNextCycle?.Invoke();
     }
 }

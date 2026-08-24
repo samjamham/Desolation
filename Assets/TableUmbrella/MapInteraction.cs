@@ -1,6 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class MapInteraction : MonoBehaviour, IFirstPersonInteractable
 {
@@ -30,17 +31,21 @@ public class MapInteraction : MonoBehaviour, IFirstPersonInteractable
     }
 
     public void Interact()
-    {
-        Player.GetComponent<PlayerInput>().enabled = false;
+    {        
         CameraManager.SwapCamTo(TopDownCam);
-
         TopDownCam.GetComponent<TDCFacePlayer>().RotateToPlayer(); //Maybe dont use
         ScryMapDrag.GetComponent<ScryMapDrag>().SetViweAngle(TopDownCam.transform.rotation.eulerAngles.y); //Maybe dont use
+        StartCoroutine(SwitchContorlMethods());        
+    }
 
-
-        ScryMapDrag.GetComponent<PlayerInput>().enabled = true;
+    IEnumerator SwitchContorlMethods()
+    {
+        Player.GetComponent<PlayerInput>().enabled = false;
+        yield return new WaitForSeconds(1f);
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+        ScryMapDrag.GetComponent<PlayerInput>().enabled = true;
+
     }
 
     public bool CanInteract()

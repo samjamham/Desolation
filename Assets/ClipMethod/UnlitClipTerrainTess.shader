@@ -6,7 +6,8 @@ Shader "Custom/UnlitClipTerrainTess"
         _BaseTexture("Base Texture", 2D) = "white" {}
         _TessellationAmount("Tessellation Amount", Range(1.0, 64.0)) = 1.0
         _ZoomScale("Zoom Scale", Range(0,10)) = 1.0
-        [DisplacementTexture] _BaseDisplacement("Base Dispalcement", 2D) ="white" {}
+        _BaseDisplacement("Base Dispalcement", 2D) ="white" {}
+        _NormalTexture("Normal Map", 2D) = "white" {}
     }
     SubShader
     {
@@ -38,10 +39,14 @@ Shader "Custom/UnlitClipTerrainTess"
                 float _TessellationAmount;
                 float _ZoomScale;
                 float4 _BaseDisplacement_ST;
+                float4 _NormalTexture_ST;
             CBUFFER_END
 
             TEXTURE2D(_BaseTexture);
             SAMPLER(sampler_BaseTexture);
+            
+            TEXTURE2D(_NormalTexture);
+            SAMPLER(sampler_NormalTexture);
 
             sampler2D _BaseDisplacement;
 
@@ -49,12 +54,14 @@ Shader "Custom/UnlitClipTerrainTess"
             {
                 float4 positionOS : POSITION;
                 float2 uv : TEXCOORD0;
+                float2 uv_Normal : TEXCOORD1;
             };
 
             struct tessControlPoint
             {
                 float3 positionWS : INTERNALTESSPOS;
                 float2 uv : TEXCOORD0;
+                float2 uv_Normal : TEXCOORD1;
             };
 
             struct tessFactors
@@ -67,17 +74,19 @@ Shader "Custom/UnlitClipTerrainTess"
             {
                 float4 positionCS : SV_POSITION;
                 float2 uv : TEXCOORD0;
-                float3 MyPos : TEST;
+                float2 uv_Normal : TEXCOORD1;
+                float3 MyPos : POSITION1;
             };
 
             tessControlPoint vert(appdata v)
             {
-                tessControlPoint o = (tessControlPoint)0;
+                tessControlPoint OUT = (tessControlPoint)0;
 
-                o.positionWS = TransformObjectToWorld(v.positionOS.xyz);
-                o.uv = TRANSFORM_TEX(v.uv, _BaseTexture);
+                OUT.positionWS = TransformObjectToWorld(v.positionOS.xyz);
+                OUT.uv = TRANSFORM_TEX(v.uv, _BaseTexture);
+                OUT.uv_Normal = TRANSFORM_TEX(v.uv_Normal, _NormalTexture);
 
-                return o;
+                return OUT;
             }
 
             [domain("tri")]
@@ -136,15 +145,20 @@ Shader "Custom/UnlitClipTerrainTess"
                 float2 uv = patch[0].uv * barycentricCoordinates.x +
                             patch[1].uv * barycentricCoordinates.y +
                             patch[2].uv * barycentricCoordinates.z;
+
+                float2 uv_Normal = patch[0].uv_Normal * barycentricCoordinates.x +
+                            patch[1].uv_Normal * barycentricCoordinates.y +
+                            patch[2].uv_Normal * barycentricCoordinates.z;
                 
                 float2 Tiles = _BaseDisplacement_ST.xy;           
-                float yMod = tex2Dlod(_BaseDisplacement, float4((uv.xy/Tiles),0,1)).x;
+                float yMod = tex2Dlod(_BaseDisplacement, float4((uv_Normal.xy/Tiles),0,1)).x;
                 yMod *= _Zoomies;
                 positionWS.y += yMod;
 
                 i.MyPos = positionWS;
                 i.positionCS = TransformWorldToHClip(positionWS);
                 i.uv = uv;
+                i.uv_Normal = uv_Normal;
 
                 return i;
             }
@@ -160,7 +174,11 @@ Shader "Custom/UnlitClipTerrainTess"
                     clip(-distance);
                 }
                 float4 textureColor = SAMPLE_TEXTURE2D(_BaseTexture, sampler_BaseTexture, IN.uv);
-                return textureColor * _BaseColor;
+                float4 NormalMap = SAMPLE_TEXTURE2D(_NormalTexture, sampler_NormalTexture, IN.uv_Normal);
+                float3 Down = float3(0,1,0);
+                float ShadowAmount = dot(Down, NormalMap.xyz);
+
+                return textureColor * _BaseColor * ShadowAmount;
             }
 
             ENDHLSL

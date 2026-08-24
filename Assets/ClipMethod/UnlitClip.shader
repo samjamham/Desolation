@@ -10,6 +10,12 @@ Shader "Custom/UnlitClip"
     SubShader
     {
         Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" "Queue"="Geometry-2" "TerrainCompatible" = "True"}
+        Stencil
+        {
+            ref 10
+            Comp always
+            pass replace
+        }
         Pass
         {
             //cull off
