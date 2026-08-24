@@ -53,7 +53,7 @@ public class ScryMapDrag : MonoBehaviour
         MouseMovement = Vector2.zero;
     }
 
-    public void SetViweAngle(float value)
+    public void SetViewAngle(float value)
     {
         Rotation = value;
     }    
@@ -86,13 +86,13 @@ public class ScryMapDrag : MonoBehaviour
     private void OnDrag(InputValue value)
     {
         MouseMovement = value.Get<Vector2>() - MouseLastFrame;
-        MouseMovement.x *= (2.5f/Screen.width);
-        MouseMovement.y *= (2.5f/Screen.height);
+        MouseMovement.x *= (2.75f / Screen.width);
+        MouseMovement.y *= (2.75f / Screen.height);
 
-        Vector3 test = Quaternion.AngleAxis(Rotation, Vector3.up) * new Vector3(MouseMovement.x, 0f, MouseMovement.y);
-        MouseMovement = new Vector2(test.x, test.z);
+        Vector3 CamaeraRotation = Quaternion.AngleAxis(Rotation, Vector3.up) * new Vector3(MouseMovement.x, 0f, MouseMovement.y);
+        MouseMovement = new Vector2(CamaeraRotation.x, CamaeraRotation.z);
         Vector3 v3 = value.Get<Vector2>();
-        v3.z = 9.4f; //distance between table and camera
+        v3.z = Vector3.Distance(Camera.main.transform.position, new Vector3(0f, 0.5f, 0f)); //distance between table and camera
         MousePosition = Camera.main.ScreenToWorldPoint(v3);
         MousePosition.y = 0f;
 

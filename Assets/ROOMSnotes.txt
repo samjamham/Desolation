@@ -1,5 +1,37 @@
 ◯	Scry room
 ⛌	Pantry
+⛌	Crafting
+⛌	Storage
 ⛌	Water purifier
 ⛌	Bedroom(s)
+?	Research
 ?	Barracks
+
+
+
+
+
+XCOM
+Mission control - ScryRoom
+Situation Room - ???
+Engineering - Crafting
+Research Labs - Research
+Barracks - Barracks
+Hanger - ???
+
+Access Lifts		- Probs not needed / stairs
+Power Generator		- Solar shield?
+Thermo Generator	- ""
+Elerium Generator	- ""
+Satellite Uplink	- Unlocking more map?
+Satellite Nexus		- ""
+Laboratory		- ??
+Alien Containment	- Dustling research?
+Workshop		- ??
+Foundry			- Projects
+Officer Training School	- Levelling up
+Psionic Labs		- Magic powers
+Hyperwave Relay		- Better Previews
+Gollop Chamber		- ??
+Cybernetics Lab		- Magic powers 2?
+Genetics Lab		- Even more Magic powers?

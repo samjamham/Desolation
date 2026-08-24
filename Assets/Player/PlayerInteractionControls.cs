@@ -18,8 +18,8 @@ public class PlayerInteractionControls : MonoBehaviour
         
     }
 
-    public void OnMapInteract(InputValue value)
+    public void OnInteract(InputValue value)
     {
-        interactionBox.MapInteract();
+        interactionBox.Interact();
     }
 }

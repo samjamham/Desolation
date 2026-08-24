@@ -3,10 +3,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 
-public class MapInteraction : MonoBehaviour, IFirstPersonInteractable
+public class MapInteraction : FirstPersonInteraction
 {
-    [SerializeField]
-    private bool canInteract;
+
 
     [SerializeField]
     private GameObject Player;
@@ -30,11 +29,11 @@ public class MapInteraction : MonoBehaviour, IFirstPersonInteractable
         
     }
 
-    public void Interact()
+    public override void Interact()
     {        
         CameraManager.SwapCamTo(TopDownCam);
         TopDownCam.GetComponent<TDCFacePlayer>().RotateToPlayer(); //Maybe dont use
-        ScryMapDrag.GetComponent<ScryMapDrag>().SetViweAngle(TopDownCam.transform.rotation.eulerAngles.y); //Maybe dont use
+        ScryMapDrag.GetComponent<ScryMapDrag>().SetViewAngle(TopDownCam.transform.rotation.eulerAngles.y); //Maybe dont use
         StartCoroutine(SwitchContorlMethods());        
     }
 
@@ -46,10 +45,5 @@ public class MapInteraction : MonoBehaviour, IFirstPersonInteractable
         Cursor.visible = true;
         ScryMapDrag.GetComponent<PlayerInput>().enabled = true;
 
-    }
-
-    public bool CanInteract()
-    {
-        return canInteract;
     }
 }

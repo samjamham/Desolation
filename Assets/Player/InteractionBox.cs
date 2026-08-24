@@ -20,7 +20,7 @@ public class InteractionBox : MonoBehaviour
         }
     }
 
-    public void MapInteract()
+    public void Interact()
     {
         interactableInRange?.Interact();
     }
