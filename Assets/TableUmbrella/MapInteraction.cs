@@ -5,17 +5,11 @@ using System.Collections;
 
 public class MapInteraction : FirstPersonInteraction
 {
+    [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject ScryMapDrag;
 
-
-    [SerializeField]
-    private GameObject Player;
-    [SerializeField]
-    private GameObject ScryMapDrag;
-
-    [SerializeField]
-    CameraManager CameraManager;
-    [SerializeField]
-    CinemachineCamera TopDownCam;
+    [SerializeField] CameraManager CameraManager;
+    [SerializeField] CinemachineCamera TopDownCam;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +28,7 @@ public class MapInteraction : FirstPersonInteraction
         CameraManager.SwapCamTo(TopDownCam);
         TopDownCam.GetComponent<TDCFacePlayer>().RotateToPlayer(); //Maybe dont use
         ScryMapDrag.GetComponent<ScryMapDrag>().SetViewAngle(TopDownCam.transform.rotation.eulerAngles.y); //Maybe dont use
-        StartCoroutine(SwitchContorlMethods());        
+        StartCoroutine(SwitchContorlMethods());
     }
 
     IEnumerator SwitchContorlMethods()

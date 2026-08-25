@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class BedInteraction : FirstPersonInteraction
+public class StorageInteraction : FirstPersonInteraction
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,11 +13,8 @@ public class BedInteraction : FirstPersonInteraction
     {
         
     }
-
-    public Action MoveToNextCycle;
     public override void Interact()
     {
-        MoveToNextCycle?.Invoke();
+        Debug.Log("Hi I'm a Storage");
     }
-
 }

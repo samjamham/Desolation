@@ -7,17 +7,13 @@ using static UnityEditor.PlayerSettings;
 
 public class ScryMapDrag : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject Player;
-    [SerializeField]
-    private GameObject ScryMap;
+    [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject ScryMap;
     private GameObject ZoomPivot;
 
     private float ZoomLevel;
-    [SerializeField, Range(0.1f, 2f)]
-    private float MaxScale;
-    [SerializeField, Range(0.1f, 2f)]
-    private float MinScale;
+    [SerializeField, Range(0.1f, 2f)] private float MaxScale;
+    [SerializeField, Range(0.1f, 2f)] private float MinScale;
 
 
 

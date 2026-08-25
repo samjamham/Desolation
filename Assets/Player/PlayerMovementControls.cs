@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Security.Cryptography;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,19 +10,18 @@ using UnityEngine.UIElements;
 public class PlayerMovementControls : MonoBehaviour
 {
 
-    [Range(0.0f, 10.0f)]
-    public float speedModifier = 1f;
-    [Range(0.0f, 10.0f)]
-    public float JumpForce = 1.0f;
+    [Range(0.0f, 10.0f)] public float speedModifier = 1f;
+    [Range(0.0f, 10.0f)] public float JumpForce = 1.0f;
 
     private Vector2 moveInput;
     private float Gravity;
     private float yVelocity;
     private Vector3 xzVelocity;
-    private bool Dojump; 
+    private float IsSprinting = 1f;
+    private bool Dojump;
 
-    [SerializeField]
-    private CharacterController myCharacterController;
+
+    [SerializeField] private CharacterController myCharacterController;
 
 
 
@@ -41,6 +41,7 @@ public class PlayerMovementControls : MonoBehaviour
     {
         Vector3 MoveDirection = new Vector3(0, 0, 0);
         xzVelocity = this.transform.forward * moveInput.y + this.transform.right * moveInput.x;
+        xzVelocity *= IsSprinting;
         MoveDirection += xzVelocity;
 
         if (myCharacterController.isGrounded && Dojump)
@@ -57,6 +58,11 @@ public class PlayerMovementControls : MonoBehaviour
             yVelocity += Gravity;
         else
             yVelocity = 0;
+
+        if (xzVelocity.magnitude < 0.01f)
+        {
+            IsSprinting = 1f;
+        }
     }
 
     void OnMove(InputValue value)
@@ -80,8 +86,8 @@ public class PlayerMovementControls : MonoBehaviour
         Dojump = false;
     }
 
-    void OnNextShift(InputValue value)
+    void OnSprint(InputValue value)
     {
-
+        IsSprinting = 2f;
     }
 }

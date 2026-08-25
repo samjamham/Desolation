@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class FirstPersonInteraction : MonoBehaviour, IFirstPersonInteractable
 {
-    [SerializeField]
-    private bool canInteract;
+    [SerializeField] private bool canInteract;
     public virtual void Interact()
     {
 
