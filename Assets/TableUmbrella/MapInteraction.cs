@@ -38,6 +38,6 @@ public class MapInteraction : FirstPersonInteraction
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         ScryMapDrag.GetComponent<PlayerInput>().enabled = true;
-
+        PlayerManager.ChangePlayMode(PlayerManager.Playmode.TopDown);
     }
 }

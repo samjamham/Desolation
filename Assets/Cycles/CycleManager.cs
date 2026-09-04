@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class CycleManager : MonoBehaviour
 {
-    [SerializeField]
-    private BedInteraction myBed;
+    public static CycleManager instance { get; private set; }
+    [SerializeField] private BedInteraction myBed;
     public int CyclePhase { get; private set; }
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -18,8 +22,7 @@ public class CycleManager : MonoBehaviour
 
     }
 
-    public void ProgressToNextCycle()
-    {
+    public void ProgressToNextCycle()   {
 
 
 

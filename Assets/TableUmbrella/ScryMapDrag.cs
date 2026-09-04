@@ -15,21 +15,15 @@ public class ScryMapDrag : MonoBehaviour
     [SerializeField, Range(0.1f, 2f)] private float MaxScale;
     [SerializeField, Range(0.1f, 2f)] private float MinScale;
 
-
-
     private bool MouseHeld = false;
     private Vector2 MouseLastFrame = Vector2.zero;
     private Vector2 MouseMovement = Vector2.zero;
     private Vector3 MousePosition = Vector2.zero;
 
-
-
     private float Rotation = 0;
 
-    [SerializeField]
-    CameraManager CameraManager;
-    [SerializeField]
-    CinemachineCamera PlayerCamera;
+    [SerializeField] CameraManager CameraManager;
+    [SerializeField] CinemachineCamera PlayerCamera;
 
     private void Start()
     {
@@ -60,7 +54,7 @@ public class ScryMapDrag : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         MouseHeld = false;
-
+        PlayerManager.ChangePlayMode(PlayerManager.Playmode.FirstPerson);
         Player.GetComponent<PlayerInput>().enabled = true;
         CameraManager.SwapCamTo(PlayerCamera);
     }
@@ -79,7 +73,7 @@ public class ScryMapDrag : MonoBehaviour
         }
     }
 
-    private void OnDrag(InputValue value)
+    private void OnPointerPos(InputValue value)
     {
         MouseMovement = value.Get<Vector2>() - MouseLastFrame;
         MouseMovement.x *= (2.75f / Screen.width);
