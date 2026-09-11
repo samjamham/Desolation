@@ -24,8 +24,11 @@ public class NodeCreator : MonoBehaviour
             if (mCreate)
             {
                 Node = Instantiate(NodePrefab, transform.parent);
-
+                GameObject Cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                Cube.transform.localScale = Vector3.one * 0.3f;
+                Cube.transform.parent = Node.transform;
                 Node.transform.position = new Vector3(-1, 0, 1);
+                Cube.transform.position = new Vector3(-1, 0, 1);
                 Node.GetComponent<HoverTest>().ChangeNavigator(Navi);
                 nodeA = Node.GetComponent<AStarNode>();
                 Navi.AddNode(nodeA);
