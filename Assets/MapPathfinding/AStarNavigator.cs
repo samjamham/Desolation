@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -50,16 +51,19 @@ public class AStarNavigator : MonoBehaviour
             return new List<AStarNode> { start };
         }
         bool found = false;
+
         List<AStarNode> OpenList = new List<AStarNode>();
         List<AStarNode> ClosedList = new List<AStarNode>(); 
         OpenList.Add(start);
         while (!found)
         {
+            bool Exhaust = true;
             foreach (AStarNode nodeA in OpenList)
             {
                 foreach (AStarNode nodeB in nodeA.getNeighbours())
                 {
                     if (OpenList.Contains(nodeB)) continue;
+                    Exhaust = false;
                     ClosedList.Add(nodeB);
                     nodeB.Parent = nodeA;
                     if (nodeB == end)
@@ -78,8 +82,15 @@ public class AStarNavigator : MonoBehaviour
             }
             OpenList.AddRange(ClosedList);
             ClosedList.Clear();
+            if (Exhaust)
+            {
+                m_Map.ClearParents();
+                return new List<AStarNode> { start };
+            }
         }
-        return ClosedList;
+        //Should never get here, if program has reached here something has gone wrong :3
+        m_Map.ClearParents();
+        return new List<AStarNode> { start };
     }
     private List<AStarNode> RetracePath(AStarNode end, AStarNode start)
     {
@@ -95,7 +106,7 @@ public class AStarNavigator : MonoBehaviour
     }
     public void Update()
     {
-
+        //Testing only ---------------------vv
         if(Move.triggered)
         {
             OnMove();
@@ -115,21 +126,33 @@ public class AStarNavigator : MonoBehaviour
                 Debug.DrawLine(m_PotentalPath[i].transform.position + new Vector3(0f, 0.3f, 0f), m_PotentalPath[i + 1].transform.position + new Vector3(0f, 0.3f, 0f), Color.orange);
             }
         }
+        //Testing only ---------------------^^
     }
 
     public void OnMove()
     {
         if (m_Path.Count > 1)
         {
-            transform.position = m_Path[1].transform.position;
-            m_Path.RemoveAt(0);
-            m_CurrentNode = m_Path[0];
+            if (m_CurrentNode.getNeighbours().Contains(m_Path[1]))
+            {
+                transform.position = m_Path[1].transform.position;
+                m_Path.RemoveAt(0);
+                m_CurrentNode = m_Path[0];
+            }
         }
         if(m_PotentalPath.Count > 0)
         {
-            //if (m_CurrentNode != m_PotentalPath.Last())
-                FindNewPath(m_PotentalPath.Last());
+            FindNewPath(m_PotentalPath.Last());
         }
+    }
+
+    public void AddNode(AStarNode node)
+    {
+        m_Map.AddNode(node);    
+    }
+    public void RemoveNode(AStarNode node)
+    {
+        m_Map.RemoveNode(node);
     }
 
 }

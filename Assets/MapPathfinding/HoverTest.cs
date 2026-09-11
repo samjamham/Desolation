@@ -32,12 +32,17 @@ public class HoverTest : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         MEx();
     }
-    void MEn()
+    private void MEn()
     {
-        m_myNavigator.FindNewPath(m_myNode);
+        m_myNavigator?.FindNewPath(m_myNode);
     }
-    void MEx()
+    private void MEx()
     {
-        m_myNavigator.ClearNewPath();
+        m_myNavigator?.ClearNewPath();
     }
+    public void ChangeNavigator(AStarNavigator Navi)
+    {
+        m_myNavigator = Navi;
+    }
+
 }

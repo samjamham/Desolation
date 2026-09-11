@@ -23,4 +23,23 @@ public class AStarMap : MonoBehaviour
             node.Parent = null;
         }
     }
+    public void AddNode(AStarNode node)
+    {
+        if (!NodesArr.Contains(node))
+        {
+            NodesArr.Add(node);            
+        }
+    }
+    public void RemoveNode(AStarNode node) 
+    {
+        if (NodesArr.Contains(node))
+        {
+            foreach (AStarNode nodeNeighbour in node.getNeighbours()) 
+            {
+                node.RemoveNeighbourTwoWay(nodeNeighbour);
+            }
+            NodesArr.Remove(node);
+        }
+    }
+
 }

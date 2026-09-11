@@ -19,5 +19,24 @@ public class AStarNode : MonoBehaviour
     {
         return Neighbours;
     }
+    public void AddNeighbourOneWay(AStarNode node)
+    {
+        if (!Neighbours.Contains(node))
+            Neighbours.Add(node);
+    } public void AddNeighbourTwoWay(AStarNode node)
+    {
+        AddNeighbourOneWay(node);
+        node.AddNeighbourOneWay(this);
+    }
+    public void RemoveNeighbourOneWay(AStarNode node)
+    {
+        if (Neighbours.Contains(node))
+            Neighbours.Remove(node);
+    }    
+    public void RemoveNeighbourTwoWay(AStarNode node)
+    {
+        RemoveNeighbourOneWay(node);
+        node.RemoveNeighbourOneWay(this);
+    }
 
 }
