@@ -1774,51 +1774,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoverTest
   m_myNavigator: {fileID: 1953065188}
---- !u!1 &825865014
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 825865016}
-  - component: {fileID: 825865015}
-  m_Layer: 0
-  m_Name: AStarMap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &825865015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825865014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e85e5ecf9cb77cd4c83cb160018c5f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  Nodes: {fileID: 1055764838}
---- !u!4 &825865016
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825865014}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1953065187}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &843890721
 GameObject:
   m_ObjectHideFlags: 0
@@ -3347,6 +3302,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1953065187}
   - component: {fileID: 1953065188}
+  - component: {fileID: 1953065189}
+  - component: {fileID: 1953065190}
   m_Layer: 0
   m_Name: Navigator
   m_TagString: Untagged
@@ -3367,7 +3324,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 825865016}
   - {fileID: 1943319242}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3383,7 +3339,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f82e6874967bf842982d4540c6c1df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  m_Map: {fileID: 825865015}
+  m_Map: {fileID: 1953065189}
+--- !u!114 &1953065189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953065186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85e5ecf9cb77cd4c83cb160018c5f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AStarMap
+  Nodes: {fileID: 1055764838}
+--- !u!114 &1953065190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953065186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1ae1e7f1cf7e443b8f97df58df3be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  nav: {fileID: 1953065188}
   TestStart: {fileID: 1849208467}
   TestEnd: {fileID: 1942777424}
   Move:

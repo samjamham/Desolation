@@ -7,14 +7,14 @@ public class AStarMap : MonoBehaviour
     private List<AStarNode> NodesArr;
     [SerializeField] private GameObject Nodes;
 
-    private void Start()
+    private void Awake()
     {
         NodesArr = new List<AStarNode>();
         foreach (AStarNode node in Nodes.transform.GetComponentsInChildren<AStarNode>())
         {
             NodesArr.Add(node);
         }
-        Debug.Log($"I have {NodesArr.Count} Nodes in my list");
+        //Debug.Log($"I have {NodesArr.Count} Nodes in my list");
     }
     public void ClearParents()
     {
@@ -27,14 +27,14 @@ public class AStarMap : MonoBehaviour
     {
         if (!NodesArr.Contains(node))
         {
-            NodesArr.Add(node);            
+            NodesArr.Add(node);
         }
     }
     public void RemoveNode(AStarNode node) 
     {
         if (NodesArr.Contains(node))
         {
-            foreach (AStarNode nodeNeighbour in node.getNeighbours()) 
+            foreach (AStarNode nodeNeighbour in node.GetNeighbours()) 
             {
                 node.RemoveNeighbourTwoWay(nodeNeighbour);
             }

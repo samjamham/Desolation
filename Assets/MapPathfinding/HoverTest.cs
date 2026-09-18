@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.InputSystem;
 
-public class HoverTest : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class HoverTest : MonoBehaviour
 {
     private AStarNode m_myNode;
     [SerializeField] private AStarNavigator m_myNavigator;
@@ -15,28 +15,11 @@ public class HoverTest : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         m_myNode = GetComponent<AStarNode>();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        MEn();
-    }
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        MEx();
-    }
-
     public void OnMouseEnter()
-    {
-        MEn();
-    }
-    public void OnMouseExit()
-    {
-        MEx();
-    }
-    private void MEn()
     {
         m_myNavigator?.FindNewPath(m_myNode);
     }
-    private void MEx()
+    public void OnMouseExit()
     {
         m_myNavigator?.ClearNewPath();
     }

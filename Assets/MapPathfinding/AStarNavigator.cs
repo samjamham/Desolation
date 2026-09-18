@@ -13,19 +13,15 @@ public class AStarNavigator : MonoBehaviour
     private List<AStarNode> m_Path;
     private List<AStarNode> m_PotentalPath;
     private AStarNode m_CurrentNode;
-    [SerializeField] private AStarNode TestStart;
-    [SerializeField] private AStarNode TestEnd;
-    [SerializeField] private InputAction Move;
-    [SerializeField] private InputAction MouseDown;
-
 
     public void Start()
+    {      
+        m_PotentalPath = new List<AStarNode>();       
+    }
+    public void FindStartPath(AStarNode Start, AStarNode End)
     {
-        Move.Enable();
-        MouseDown.Enable();
-        m_Path = A_Star(TestStart, TestEnd);
-        m_PotentalPath = new List<AStarNode>();
-        m_CurrentNode = TestStart;
+        m_Path = A_Star(Start, End);
+        m_CurrentNode = Start;
     }
     public void FindNewPath(AStarNode End)
     {
@@ -60,7 +56,7 @@ public class AStarNavigator : MonoBehaviour
             bool Exhaust = true;
             foreach (AStarNode nodeA in OpenList)
             {
-                foreach (AStarNode nodeB in nodeA.getNeighbours())
+                foreach (AStarNode nodeB in nodeA.GetNeighbours())
                 {
                     if (OpenList.Contains(nodeB)) continue;
                     Exhaust = false;
@@ -106,18 +102,9 @@ public class AStarNavigator : MonoBehaviour
     }
     public void Update()
     {
-        //Testing only ---------------------vv
-        if(Move.triggered)
+        for (int i = 0; i < m_Path.Count - 1; i++)
         {
-            OnMove();
-        }
-        if (MouseDown.triggered)
-        {
-            UpdateToNewPath();
-        }
-        for  (int i = 0; i < m_Path.Count -1; i++)
-        {
-            Debug.DrawLine(m_Path[i].transform.position + new Vector3(0f,0.3f,0f), m_Path[i+1].transform.position + new Vector3(0f, 0.3f, 0f), Color.rebeccaPurple);
+            Debug.DrawLine(m_Path[i].transform.position + new Vector3(0f, 0.3f, 0f), m_Path[i + 1].transform.position + new Vector3(0f, 0.3f, 0f), Color.rebeccaPurple);
         }
         if (m_PotentalPath.Count > 0)
         {
@@ -126,14 +113,13 @@ public class AStarNavigator : MonoBehaviour
                 Debug.DrawLine(m_PotentalPath[i].transform.position + new Vector3(0f, 0.3f, 0f), m_PotentalPath[i + 1].transform.position + new Vector3(0f, 0.3f, 0f), Color.orange);
             }
         }
-        //Testing only ---------------------^^
     }
 
     public void OnMove()
     {
         if (m_Path.Count > 1)
         {
-            if (m_CurrentNode.getNeighbours().Contains(m_Path[1]))
+            if (m_CurrentNode.GetNeighbours().Contains(m_Path[1]))
             {
                 transform.position = m_Path[1].transform.position;
                 m_Path.RemoveAt(0);
@@ -154,5 +140,4 @@ public class AStarNavigator : MonoBehaviour
     {
         m_Map.RemoveNode(node);
     }
-
 }

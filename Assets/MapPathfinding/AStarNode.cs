@@ -5,7 +5,7 @@ using UnityEngine;
 public class AStarNode : MonoBehaviour
 {
     public int NodeID { get; private set; }
-    [SerializeField] private List<AStarNode> Neighbours;
+    [SerializeField] private List<AStarNode> Neighbours = new List<AStarNode>();
     public AStarNode Parent;
 
     public void Update()
@@ -15,7 +15,7 @@ public class AStarNode : MonoBehaviour
             Debug.DrawLine(transform.position, nodes.transform.position);
         }  
     }
-    public List<AStarNode> getNeighbours()
+    public List<AStarNode> GetNeighbours()
     {
         return Neighbours;
     }
