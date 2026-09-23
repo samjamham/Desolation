@@ -10,10 +10,13 @@ public class AStarNode : MonoBehaviour
 
     public void Update()
     {
+        //For testing only
+        //----------------
         foreach (AStarNode nodes in Neighbours)
         {
             Debug.DrawLine(transform.position, nodes.transform.position);
-        }  
+        }
+        //----------------
     }
     public List<AStarNode> GetNeighbours()
     {

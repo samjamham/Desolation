@@ -10,11 +10,16 @@ public class AStarMap : MonoBehaviour
     private void Awake()
     {
         NodesArr = new List<AStarNode>();
+        RefreshList();
+        //Debug.Log($"I have {NodesArr.Count} Nodes in my list");
+    }
+    void RefreshList()
+    {
+        NodesArr.Clear();
         foreach (AStarNode node in Nodes.transform.GetComponentsInChildren<AStarNode>())
         {
             NodesArr.Add(node);
         }
-        //Debug.Log($"I have {NodesArr.Count} Nodes in my list");
     }
     public void ClearParents()
     {
