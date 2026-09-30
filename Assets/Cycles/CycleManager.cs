@@ -1,10 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CycleManager : MonoBehaviour
 {
     public static CycleManager instance { get; private set; }
-    [SerializeField] private BedInteraction myBed;
+    [SerializeField] private int AdditionalCycs = 0;
+
     public int CyclePhase { get; private set; }
+    public int CycleDay { get; private set; }
+
+    [SerializeField] UnityEvent Cycleprogess;
+
     private void Awake()
     {
         instance = this;
@@ -12,22 +18,35 @@ public class CycleManager : MonoBehaviour
 
     private void Start()
     {
-        myBed.MoveToNextCycle += () =>
+        SetCycle(0,0); //DEBUG ONLY
+        if (Cycleprogess == null)
+            Cycleprogess = new UnityEvent();
+        foreach (AStarNavigator Navis in GameObject.FindObjectsByType(typeof(AStarNavigator)))
         {
-            ProgressToNextCycle();
-        };
-    }
-    private void Update()
+            Cycleprogess.AddListener(Navis.OnMove);
+        }
+
+        }
+        private void Update()
     {
 
     }
+    public void SetCycle(int Phase, int Day)
+    {
+        CyclePhase = Phase;
+        CycleDay = Day;
+        Debug.Log($"Cycle:{CyclePhase}, Day:{CycleDay}");
+    }
 
     public void ProgressToNextCycle()   {
-
-
-
         CyclePhase++;
-        Debug.Log(CyclePhase);
+        if (CyclePhase > 1 + AdditionalCycs)
+        {
+            CycleDay++;
+            CyclePhase = 0;
+        }
+        Debug.Log($"Cycle:{CyclePhase}, Day:{ CycleDay}");
+        Cycleprogess.Invoke();
     }
 
 }

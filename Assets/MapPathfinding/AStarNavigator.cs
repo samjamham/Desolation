@@ -106,13 +106,13 @@ public class AStarNavigator : MonoBehaviour
         //----------------
         for (int i = 0; i < m_Path.Count - 1; i++)
         {
-            Debug.DrawLine(m_Path[i].transform.position + new Vector3(0f, 0.3f, 0f), m_Path[i + 1].transform.position + new Vector3(0f, 0.3f, 0f), Color.rebeccaPurple);
+            Debug.DrawLine(m_Path[i].transform.position + new Vector3(0f, 0.3f, 0f) * transform.localScale.magnitude, m_Path[i + 1].transform.position + new Vector3(0f, 0.3f, 0f) * transform.localScale.magnitude, Color.rebeccaPurple);
         }
         if (m_PotentalPath.Count > 0)
         {
             for (int i = 0; i < m_PotentalPath.Count - 1; i++)
             {
-                Debug.DrawLine(m_PotentalPath[i].transform.position + new Vector3(0f, 0.3f, 0f), m_PotentalPath[i + 1].transform.position + new Vector3(0f, 0.3f, 0f), Color.orange);
+                Debug.DrawLine(m_PotentalPath[i].transform.position + new Vector3(0f, 0.3f, 0f) * transform.localScale.magnitude, m_PotentalPath[i + 1].transform.position + new Vector3(0f, 0.3f, 0f) * transform.localScale.magnitude, Color.orange);
             }
         }
         //----------------

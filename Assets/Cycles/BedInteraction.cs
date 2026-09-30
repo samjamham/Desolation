@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BedInteraction : FirstPersonInteraction
 {
-    public Action MoveToNextCycle;
+    [SerializeField] private UnityEvent MoveToNextCycle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,11 +17,10 @@ public class BedInteraction : FirstPersonInteraction
         
     }
 
-
     public override void Interact()
     {
         Debug.Log("Hi I'm a Bed");
-        MoveToNextCycle?.Invoke();
+        MoveToNextCycle.Invoke();
     }
 
 }

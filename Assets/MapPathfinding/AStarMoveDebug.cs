@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class AStarMoveDebug : MonoBehaviour
@@ -8,6 +9,7 @@ public class AStarMoveDebug : MonoBehaviour
     [SerializeField] private AStarNode TestEnd;
     [SerializeField] private InputAction Move;
     [SerializeField] private InputAction MouseDown;
+    [SerializeField] UnityEvent Event;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,11 +25,11 @@ public class AStarMoveDebug : MonoBehaviour
         //Testing only ---------------------vv
         if (Move.triggered)
         {
-            nav.OnMove();
+            //nav.OnMove();
         }
         if (MouseDown.triggered)
         {
-            nav.UpdateToNewPath();
+            Event.Invoke();
         }        
         //Testing only ---------------------^^
     }
