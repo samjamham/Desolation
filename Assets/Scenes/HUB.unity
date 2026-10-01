@@ -4200,7 +4200,6 @@ GameObject:
   - component: {fileID: 531691981}
   - component: {fileID: 531691984}
   - component: {fileID: 531691983}
-  - component: {fileID: 531691982}
   m_Layer: 0
   m_Name: Progress
   m_TagString: Untagged
@@ -4217,33 +4216,12 @@ Transform:
   m_GameObject: {fileID: 531691980}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.010000229, y: 0.51, z: 0}
-  m_LocalScale: {x: 0.09, y: 1, z: 0.09}
+  m_LocalPosition: {x: 0.010000229, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.09, y: 0.99, z: 0.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1180892414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &531691982
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531691980}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &531691983
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5607,7 +5585,6 @@ GameObject:
   - component: {fileID: 650333388}
   - component: {fileID: 650333391}
   - component: {fileID: 650333390}
-  - component: {fileID: 650333389}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -5630,27 +5607,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 290985411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &650333389
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650333387}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &650333390
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7222,7 +7178,6 @@ GameObject:
   - component: {fileID: 845586085}
   - component: {fileID: 845586088}
   - component: {fileID: 845586087}
-  - component: {fileID: 845586086}
   m_Layer: 0
   m_Name: Progress
   m_TagString: Untagged
@@ -7239,33 +7194,12 @@ Transform:
   m_GameObject: {fileID: 845586084}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.010000229, y: 0.51, z: 0}
-  m_LocalScale: {x: 0.09, y: 1, z: 0.09}
+  m_LocalPosition: {x: 0.010000229, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.09, y: 0.99, z: 0.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1469914443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &845586086
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845586084}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &845586087
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9990,7 +9924,6 @@ GameObject:
   - component: {fileID: 1100216128}
   - component: {fileID: 1100216131}
   - component: {fileID: 1100216130}
-  - component: {fileID: 1100216129}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -10013,27 +9946,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1729498745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1100216129
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100216127}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1100216130
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10347,7 +10259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaterTower
   <capacity>k__BackingField: 1000
-  <currentVolume>k__BackingField: 700
+  <currentVolume>k__BackingField: 750
   myPartner: {fileID: 1639655941}
   myDisplay: {fileID: 1180892413}
 --- !u!1 &1146653339
@@ -15225,7 +15137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   <capacity>k__BackingField: 1000
-  <currentVolume>k__BackingField: 750
+  <currentVolume>k__BackingField: 700
   myPartner: {fileID: 1137460620}
   myDisplay: {fileID: 1469914442}
 --- !u!1 &1652928565
