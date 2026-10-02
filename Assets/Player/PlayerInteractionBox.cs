@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InteractionBox : MonoBehaviour
+public class PlayerInteractionBox : MonoBehaviour
 {
     private IFirstPersonInteractable interactableInRange = null;
     private void OnTriggerEnter(Collider other)

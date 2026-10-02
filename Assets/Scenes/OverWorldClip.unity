@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 16535759}
   - component: {fileID: 16535758}
   - component: {fileID: 16535757}
-  - component: {fileID: 16535756}
+  - component: {fileID: 16535762}
   m_Layer: 0
   m_Name: Test Node (3)
   m_TagString: Untagged
@@ -157,19 +157,6 @@ Transform:
   - {fileID: 935199339}
   m_Father: {fileID: 1036384828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &16535756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16535754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feca08e887ae28e4db85de427b332ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoverTest
-  m_myNavigator: {fileID: 560252665}
 --- !u!114 &16535757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +265,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16535754}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &16535762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16535754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e215fea097d98d429b781529f084001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
+  canInteract: 1
+  toolTipTriggerMap: {fileID: 16535758}
+  m_myNavigator: {fileID: 560252665}
 --- !u!1 &37048368
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 206991167}
+  - component: {fileID: 206991168}
   m_Layer: 0
   m_Name: ClipedScryMap
   m_TagString: ScryMap
@@ -964,6 +967,18 @@ Transform:
   - {fileID: 861564701}
   m_Father: {fileID: 615161204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &206991168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206991166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49bf3cf27f80b24dbc7ebc378ce137e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &218035143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,7 +2022,7 @@ GameObject:
   - component: {fileID: 654495476}
   - component: {fileID: 654495475}
   - component: {fileID: 654495474}
-  - component: {fileID: 654495473}
+  - component: {fileID: 654495479}
   m_Layer: 0
   m_Name: Test Node (2)
   m_TagString: Untagged
@@ -2031,19 +2046,6 @@ Transform:
   - {fileID: 218035144}
   m_Father: {fileID: 1036384828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &654495473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654495471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feca08e887ae28e4db85de427b332ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoverTest
-  m_myNavigator: {fileID: 560252665}
 --- !u!114 &654495474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2154,6 +2156,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654495471}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &654495479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654495471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e215fea097d98d429b781529f084001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
+  canInteract: 1
+  toolTipTriggerMap: {fileID: 654495475}
+  m_myNavigator: {fileID: 560252665}
 --- !u!4 &655387997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2079634638753372266, guid: a271bf48041402947a8c10b60178cd5f, type: 3}
@@ -2482,8 +2499,9 @@ GameObject:
   - component: {fileID: 793853747}
   - component: {fileID: 793853749}
   - component: {fileID: 793853748}
-  - component: {fileID: 793853751}
   - component: {fileID: 793853750}
+  - component: {fileID: 793853751}
+  - component: {fileID: 793853752}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -2602,6 +2620,20 @@ MonoBehaviour:
   header: TEAM A
   body: 
   DisplayDelay: 0.1
+--- !u!114 &793853752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793853746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b6530d6ec90684d9700eb04cd74a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  canInteract: 1
+  toolTipTriggerMap: {fileID: 793853751}
 --- !u!1 &828144660
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,7 +3514,7 @@ GameObject:
   - component: {fileID: 1084903937}
   - component: {fileID: 1084903936}
   - component: {fileID: 1084903941}
-  - component: {fileID: 1084903940}
+  - component: {fileID: 1084903942}
   m_Layer: 0
   m_Name: Test Node (1)
   m_TagString: Untagged
@@ -3599,19 +3631,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084903934}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1084903940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084903934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feca08e887ae28e4db85de427b332ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoverTest
-  m_myNavigator: {fileID: 560252665}
 --- !u!114 &1084903941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3627,6 +3646,21 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 654495474}
   Parent: {fileID: 0}
+--- !u!114 &1084903942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084903934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e215fea097d98d429b781529f084001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
+  canInteract: 1
+  toolTipTriggerMap: {fileID: 1084903936}
+  m_myNavigator: {fileID: 560252665}
 --- !u!1 &1291628180
 GameObject:
   m_ObjectHideFlags: 0
@@ -4037,7 +4071,7 @@ GameObject:
   - component: {fileID: 1508716172}
   - component: {fileID: 1508716171}
   - component: {fileID: 1508716169}
-  - component: {fileID: 1508716170}
+  - component: {fileID: 1508716176}
   m_Layer: 0
   m_Name: Test Node (4)
   m_TagString: Untagged
@@ -4060,19 +4094,6 @@ MonoBehaviour:
   Neighbours:
   - {fileID: 654495474}
   Parent: {fileID: 0}
---- !u!114 &1508716170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508716168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feca08e887ae28e4db85de427b332ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoverTest
-  m_myNavigator: {fileID: 560252665}
 --- !u!114 &1508716171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4182,6 +4203,21 @@ Transform:
   - {fileID: 910073967}
   m_Father: {fileID: 1036384828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1508716176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508716168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e215fea097d98d429b781529f084001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
+  canInteract: 1
+  toolTipTriggerMap: {fileID: 1508716171}
+  m_myNavigator: {fileID: 560252665}
 --- !u!1 &1667772055
 GameObject:
   m_ObjectHideFlags: 0

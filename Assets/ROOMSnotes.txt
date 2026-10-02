@@ -1,10 +1,10 @@
 ◯ - Added | semi Added / ⛌ - Will add | ? - Might add
 
 ◯	Scry room
-⛌	Pantry
+◯	Pantry
 ⛌	Crafting
-⛌	Storage
-⛌	Water purifier
+◯	Storage
+◯	Water purifier
 ⛌	Bedroom(s)
 ⛌	Garden / Greenhouse
 ?	Research

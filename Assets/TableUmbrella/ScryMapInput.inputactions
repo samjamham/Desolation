@@ -7,12 +7,21 @@
             "id": "35805853-86ca-4652-be05-88c55071ee0f",
             "actions": [
                 {
-                    "name": "MouseHold",
+                    "name": "MouseClick",
                     "type": "Button",
                     "id": "c3ca7422-81f7-4b8f-ad58-bd19e8a96fea",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press(pressPoint=0.01,behavior=2)",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MouseHold",
+                    "type": "Button",
+                    "id": "62f2881f-281f-44f2-92a8-5ff3bc49ab07",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.3)",
                     "initialStateCheck": false
                 },
                 {
@@ -62,13 +71,35 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseHold",
+                    "action": "MouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "ad02a15b-66ff-4c02-85e0-4878465f8549",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e12c21b1-f358-4a8f-b4e9-998a72992a4a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f8aef95-d92b-4105-93f0-02426397d497",
                     "path": "",
                     "interactions": "",
                     "processors": "",

@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 public class ToolTipTriggerMap : ToolTipTrigger
 {
-    public override void OnMouseEnter()
+    //public override void OnMouseEnter()
+    public void DebugMouse()
     {
         if (PlayerManager.playmode != PlayerManager.Playmode.TopDown || (Mathf.Abs(transform.position.x) > 0.95f) || (Mathf.Abs(transform.position.z) > 0.95f))
         {

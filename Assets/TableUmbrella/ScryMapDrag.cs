@@ -9,7 +9,8 @@ public class ScryMapDrag : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject ScryMap;
-    private GameObject ZoomPivot;
+    private MapInteractionControls MapInteract; //Component of ScryMap
+    private GameObject ZoomPivot; //Child of ScryMap
 
     private float ZoomLevel;
     [SerializeField, Range(0.1f, 2f)] private float MaxScale;
@@ -25,9 +26,11 @@ public class ScryMapDrag : MonoBehaviour
     [SerializeField] CameraManager CameraManager;
     [SerializeField] CinemachineCamera PlayerCamera;
 
+
     private void Start()
     {
         ScryMap = GameObject.FindGameObjectWithTag("ScryMap");
+        MapInteract = ScryMap.GetComponent<MapInteractionControls>();
         ZoomPivot = ScryMap.transform.GetChild(0).gameObject;
 
         ZoomLevel = ScryMap.transform.localScale.x;
@@ -61,16 +64,19 @@ public class ScryMapDrag : MonoBehaviour
 
     void OnMouseHold(InputValue value)
     {
+        MouseHeld = true;
+    }
+    void OnMouseClick(InputValue value)
+    {
         if(value.Get<float>() == 1)
         {
-            //Debug.Log("Down");
-            MouseHeld = true;
+            MouseHeld = MapInteract.OnInteract(MouseLastFrame);
         }
         else
         {
-            //Debug.Log("Up");
             MouseHeld = false;
         }
+
     }
 
     private void OnPointerPos(InputValue value)

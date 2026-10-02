@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractionControls : MonoBehaviour
 {
-    [SerializeField] private InteractionBox interactionBox;
+    [SerializeField] private PlayerInteractionBox interactionBox;
     [SerializeField] private GameObject PauseMenu;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
