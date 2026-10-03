@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MapNodeInteraction : TopDownInteraction
 {
     [SerializeField] ToolTipTriggerMap toolTipTriggerMap;
     private AStarNode m_myNode;
     [SerializeField] private AStarNavigator m_myNavigator;
+    [SerializeField] UnityEvent Event;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,15 +21,17 @@ public class MapNodeInteraction : TopDownInteraction
     public override void Interact()
     {
         Debug.Log($"Hi im {this}");
+        Event.Invoke();
     }
     public override void OnMouseEnter()
     {
-        toolTipTriggerMap.DebugMouse();
+        toolTipTriggerMap.HoverTriggerEnter();
         m_myNavigator?.FindNewPath(m_myNode);
     }
     public void OnMouseExit()
     {
         m_myNavigator?.ClearNewPath();
+        toolTipTriggerMap.HoverTriggerExit();
     }
     public void ChangeNavigator(AStarNavigator Navi)
     {

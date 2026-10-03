@@ -20,6 +20,6 @@ public class NavigatorInteraction : TopDownInteraction
     }
     public override void OnMouseEnter()
     {
-        toolTipTriggerMap.DebugMouse();
+        toolTipTriggerMap.HoverTriggerEnter();
     }
 }

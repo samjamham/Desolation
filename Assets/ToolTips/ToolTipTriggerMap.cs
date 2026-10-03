@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class ToolTipTriggerMap : ToolTipTrigger
 {
     //public override void OnMouseEnter()
-    public void DebugMouse()
+    public void HoverTriggerEnter()
     {
         if (PlayerManager.playmode != PlayerManager.Playmode.TopDown || (Mathf.Abs(transform.position.x) > 0.95f) || (Mathf.Abs(transform.position.z) > 0.95f))
         {
@@ -14,7 +14,7 @@ public class ToolTipTriggerMap : ToolTipTrigger
         }
         DisplayToolTip(header, body);
     }
-    public override void OnMouseExit()
+    public void HoverTriggerExit()
     {
         delay = false;
         HideToolTip();

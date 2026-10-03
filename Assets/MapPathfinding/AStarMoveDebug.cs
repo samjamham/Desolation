@@ -14,8 +14,8 @@ public class AStarMoveDebug : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Move.Enable();
-        MouseDown.Enable();
+        //Move.Enable();
+        //MouseDown.Enable();
         nav.FindStartPath(TestStart, TestEnd);
     }
 
@@ -25,11 +25,11 @@ public class AStarMoveDebug : MonoBehaviour
         //Testing only ---------------------vv
         if (Move.triggered)
         {
-            //nav.OnMove();
+            //nav.OnMove(); //Moved to CycleManager
         }
         if (MouseDown.triggered)
         {
-            Event.Invoke();
+            //Event.Invoke(); //Moved to MapNodeInteraction
         }        
         //Testing only ---------------------^^
     }
