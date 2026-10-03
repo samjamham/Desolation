@@ -26,11 +26,11 @@ public class MapNodeInteraction : TopDownInteraction
     public override void OnMouseEnter()
     {
         toolTipTriggerMap.HoverTriggerEnter();
-        m_myNavigator?.FindNewPath(m_myNode);
+        m_myNavigator?.FindPotenalPath(m_myNode);
     }
     public void OnMouseExit()
     {
-        m_myNavigator?.ClearNewPath();
+        m_myNavigator?.ClearPotentalPath();
         toolTipTriggerMap.HoverTriggerExit();
     }
     public void ChangeNavigator(AStarNavigator Navi)

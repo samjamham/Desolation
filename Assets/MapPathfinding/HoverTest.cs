@@ -17,11 +17,11 @@ public class HoverTest : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        m_myNavigator?.FindNewPath(m_myNode);
+        m_myNavigator?.FindPotenalPath(m_myNode);
     }
     public void OnMouseExit()
     {
-        m_myNavigator?.ClearNewPath();
+        m_myNavigator?.ClearPotentalPath();
     }
     public void ChangeNavigator(AStarNavigator Navi)
     {

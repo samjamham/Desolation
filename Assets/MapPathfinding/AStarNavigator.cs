@@ -6,12 +6,15 @@ using System.Net;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Splines;
 
 public class AStarNavigator : MonoBehaviour
 {
     [SerializeField] private AStarMap m_Map;
     private List<AStarNode> m_Path;
     private List<AStarNode> m_PotentalPath;
+    [SerializeField] private SplineContainer m_pathTracer;
+    [SerializeField] private SplineContainer m_PotentalpathTracer;
     private AStarNode m_CurrentNode;
 
     public void Start()
@@ -22,14 +25,24 @@ public class AStarNavigator : MonoBehaviour
     {
         m_Path = A_Star(Start, End);
         m_CurrentNode = Start;
+        m_pathTracer.Spline = CreateSpline(m_Path, m_pathTracer.gameObject);
+        m_pathTracer.gameObject.GetComponentInChildren<NavigatorPathTracer>().TracerReset(true, m_Path.Count - 1);
+
     }
-    public void FindNewPath(AStarNode End)
+    public void FindPotenalPath(AStarNode End)
     {
         m_PotentalPath = A_Star(m_CurrentNode, End);
+        if (m_Path.SequenceEqual(m_PotentalPath))
+            return;
+        m_PotentalpathTracer.Spline = CreateSpline(m_PotentalPath, m_PotentalpathTracer.gameObject);
+        m_PotentalpathTracer.GetComponentInChildren<NavigatorPathTracer>().TracerReset(true, m_PotentalPath.Count - 1);
     }
-    public void ClearNewPath()
+    public void ClearPotentalPath()
     {
         m_PotentalPath.Clear();
+        m_PotentalpathTracer.Spline.Clear();
+        m_PotentalpathTracer.GetComponentInChildren<NavigatorPathTracer>().TracerReset(false);
+
     }
     public void UpdateToNewPath()
     {
@@ -38,6 +51,11 @@ public class AStarNavigator : MonoBehaviour
 
         m_Path = new List<AStarNode>(m_PotentalPath);
         transform.position = m_CurrentNode.transform.position;
+        m_pathTracer.Spline = CreateSpline(m_Path, m_pathTracer.gameObject);
+        m_pathTracer.gameObject.GetComponentInChildren<NavigatorPathTracer>().TracerReset(true, m_Path.Count - 1);
+        m_PotentalpathTracer.Spline.Clear();
+        m_PotentalpathTracer.GetComponentInChildren<NavigatorPathTracer>().TracerReset(false);
+
     }
 
     private List<AStarNode> A_Star(AStarNode start, AStarNode end)
@@ -102,20 +120,6 @@ public class AStarNavigator : MonoBehaviour
     }
     public void Update()
     {
-        //For testing only
-        //----------------
-        for (int i = 0; i < m_Path.Count - 1; i++)
-        {
-            Debug.DrawLine(m_Path[i].transform.position + new Vector3(0f, 0.3f, 0f) * transform.localScale.magnitude, m_Path[i + 1].transform.position + new Vector3(0f, 0.3f, 0f) * transform.localScale.magnitude, Color.rebeccaPurple);
-        }
-        if (m_PotentalPath.Count > 0)
-        {
-            for (int i = 0; i < m_PotentalPath.Count - 1; i++)
-            {
-                Debug.DrawLine(m_PotentalPath[i].transform.position + new Vector3(0f, 0.3f, 0f) * transform.localScale.magnitude, m_PotentalPath[i + 1].transform.position + new Vector3(0f, 0.3f, 0f) * transform.localScale.magnitude, Color.orange);
-            }
-        }
-        //----------------
     }
 
     public void OnMove()
@@ -127,11 +131,17 @@ public class AStarNavigator : MonoBehaviour
                 transform.position = m_Path[1].transform.position;
                 m_Path.RemoveAt(0);
                 m_CurrentNode = m_Path[0];
+                m_pathTracer.Spline = CreateSpline(m_Path, m_pathTracer.gameObject);
+                m_pathTracer.gameObject.GetComponentInChildren<NavigatorPathTracer>().TracerReset(true, m_Path.Count - 1);
             }
         }
         if(m_PotentalPath.Count > 0)
         {
-            FindNewPath(m_PotentalPath.Last());
+            FindPotenalPath(m_PotentalPath.Last());
+            if (m_Path.SequenceEqual(m_PotentalPath))
+                return;
+            m_PotentalpathTracer.Spline = CreateSpline(m_PotentalPath, m_PotentalpathTracer.gameObject);
+            m_PotentalpathTracer.GetComponentInChildren<NavigatorPathTracer>().TracerReset(false);
         }
     }
 
@@ -142,5 +152,18 @@ public class AStarNavigator : MonoBehaviour
     public void RemoveNode(AStarNode node)
     {
         m_Map.RemoveNode(node);
+    }
+
+    public Spline CreateSpline(List<AStarNode> Nodes, GameObject Tracer)
+    {
+        Spline nSpline = new Spline();
+        foreach (AStarNode Node in Nodes)
+        {
+            BezierKnot knot = new BezierKnot();
+            knot.Position = Tracer.transform.InverseTransformPoint(Node.transform.position);
+            nSpline.Add(knot);
+        }
+        nSpline.SetTangentMode(TangentMode.AutoSmooth);
+        return nSpline;
     }
 }
