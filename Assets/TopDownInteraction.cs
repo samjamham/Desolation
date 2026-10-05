@@ -16,5 +16,9 @@ public class TopDownInteraction : MonoBehaviour, ITopDownViewInteractable
     public virtual void OnMouseEnter()
     {
 
+    } 
+    public virtual void OnMouseExit()
+    {
+
     }
 }

@@ -28,7 +28,7 @@ public class MapNodeInteraction : TopDownInteraction
         toolTipTriggerMap.HoverTriggerEnter();
         m_myNavigator?.FindPotenalPath(m_myNode);
     }
-    public void OnMouseExit()
+    public override void OnMouseExit()
     {
         m_myNavigator?.ClearPotentalPath();
         toolTipTriggerMap.HoverTriggerExit();

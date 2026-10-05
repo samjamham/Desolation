@@ -1,6 +1,7 @@
 ◯ - Added | semi Added / ⛌ - Will add | ? - Might add
 
 ◯	Scry room
+◯	Personal Chambers
 ◯	Pantry
 ⛌	Crafting
 ◯	Storage

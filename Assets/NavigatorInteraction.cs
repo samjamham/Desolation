@@ -22,4 +22,8 @@ public class NavigatorInteraction : TopDownInteraction
     {
         toolTipTriggerMap.HoverTriggerEnter();
     }
+    public override void OnMouseExit()
+    {
+        toolTipTriggerMap.HoverTriggerExit();
+    }
 }
