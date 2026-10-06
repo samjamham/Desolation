@@ -27,7 +27,7 @@ public class CycleManager : MonoBehaviour
         }
 
         }
-        private void Update()
+    private void Update()
     {
 
     }
