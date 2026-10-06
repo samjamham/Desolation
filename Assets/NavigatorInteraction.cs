@@ -16,14 +16,17 @@ public class NavigatorInteraction : TopDownInteraction
     }
     public override void Interact()
     {
-        Debug.Log($"Hi im {this}");
+        m_Controller.SetSelection(this);
     }
     public override void OnMouseEnter()
     {
+        m_Controller.SetHovered(this);
         toolTipTriggerMap.HoverTriggerEnter();
+
     }
     public override void OnMouseExit()
     {
+        m_Controller.SetHovered(null);
         toolTipTriggerMap.HoverTriggerExit();
     }
 }

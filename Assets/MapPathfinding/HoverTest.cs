@@ -6,26 +6,26 @@ using UnityEngine.InputSystem;
 
 public class HoverTest : MonoBehaviour
 {
-    private AStarNode m_myNode;
-    [SerializeField] private AStarNavigator m_myNavigator;
+    private AStarNode m_MyNode;
+    [SerializeField] private AStarNavigator m_MyNavigator;
 
 
     private void Start()
     {
-        m_myNode = GetComponent<AStarNode>();
+        m_MyNode = GetComponent<AStarNode>();
     }
 
     public void OnMouseEnter()
     {
-        m_myNavigator?.FindPotenalPath(m_myNode);
+        m_MyNavigator?.FindPotenalPath(m_MyNode);
     }
     public void OnMouseExit()
     {
-        m_myNavigator?.ClearPotentalPath();
+        m_MyNavigator?.ClearPotentalPath();
     }
     public void ChangeNavigator(AStarNavigator Navi)
     {
-        m_myNavigator = Navi;
+        m_MyNavigator = Navi;
     }
 
 }

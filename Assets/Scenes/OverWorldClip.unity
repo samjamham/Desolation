@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Test3
   body: TestNode
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &16535759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -278,18 +278,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 16535758}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 16535758}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 16535762}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1049,6 +1049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 206991167}
   - component: {fileID: 206991168}
+  - component: {fileID: 206991169}
   m_Layer: 0
   m_Name: ClipedScryMap
   m_TagString: ScryMap
@@ -1084,6 +1085,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49bf3cf27f80b24dbc7ebc378ce137e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &206991169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206991166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafffb3d43ae32049b53c34b69f1434c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  m_CurrentSelection: {fileID: 0}
+  m_CurrentHover: {fileID: 0}
 --- !u!1 &218035143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,18 +1240,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 271257276}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 271257276}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 271257275}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1256,7 +1271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Home
   body: This is where you live.
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &271257277
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1526,18 +1541,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 348589644}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 348589644}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 348589643}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1557,7 +1572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Home
   body: This is where you live.
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &348589645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1652,6 +1667,112 @@ Transform:
   - {fileID: 2077720218}
   m_Father: {fileID: 1036384828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &388010569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 388010570}
+  - component: {fileID: 388010573}
+  - component: {fileID: 388010572}
+  - component: {fileID: 388010571}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &388010570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388010569}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.10000001, y: 0.10000001, z: 0.10000001}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1357399422}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &388010571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388010569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276a7a7f10bdcc948a0f2453ba2e9e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NavigatorPathTracer
+  m_Spline: {fileID: 1357399423}
+  m_Duration: 2
+  m_Puased: 1
+--- !u!23 &388010572
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388010569}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 8a205d02a92103a49b637cce3943776e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &388010573
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388010569}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &389706969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,18 +1825,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 389706972}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 389706972}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 389706971}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1735,7 +1856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Home
   body: This is where you live.
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &389706973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1829,6 +1950,39 @@ Transform:
   m_Children:
   - {fileID: 487512694}
   m_Father: {fileID: 1036384828}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &391527521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 391527522}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &391527522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391527521}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.28, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1401494331}
+  - {fileID: 1104707026}
+  m_Father: {fileID: 1885114496}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &405514072
 GameObject:
@@ -2540,18 +2694,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 540276192}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 540276192}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 540276191}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2571,7 +2725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Home
   body: This is where you live.
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &540276193
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2765,11 +2919,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 560252662}
+  - component: {fileID: 560252667}
+  - component: {fileID: 560252668}
   - component: {fileID: 560252665}
   - component: {fileID: 560252664}
   - component: {fileID: 560252663}
+  - component: {fileID: 560252669}
   m_Layer: 0
-  m_Name: Navigator
+  m_Name: NavigatorA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2788,7 +2945,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 793853747}
+  - {fileID: 744764634}
   - {fileID: 463969629}
   - {fileID: 843513753}
   m_Father: {fileID: 861564701}
@@ -2885,6 +3042,59 @@ MonoBehaviour:
   m_Map: {fileID: 560252664}
   m_pathTracer: {fileID: 463969630}
   m_PotentalpathTracer: {fileID: 843513754}
+--- !u!114 &560252667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560252661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b6530d6ec90684d9700eb04cd74a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  canInteract: 1
+  m_Controller: {fileID: 206991169}
+  toolTipTriggerMap: {fileID: 560252668}
+--- !u!114 &560252668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560252661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46fbc3fd23733ff42ab89ada21f2db73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
+  header: TEAM A
+  body: 
+  DisplayDelay: 0.3
+--- !u!136 &560252669
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560252661}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Height: 0.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.28, z: 0}
 --- !u!1 &607177260
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,7 +3468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Test2
   body: TestNode
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &654495476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3350,18 +3560,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 654495475}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 654495475}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 654495479}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3534,7 +3744,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 793853747}
+  m_Father: {fileID: 744764634}
   m_LocalEulerAnglesHint: {x: 3.388, y: 44.851, z: -16.694}
 --- !u!23 &704975777
 MeshRenderer:
@@ -3684,6 +3894,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706255316}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &744764633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 744764634}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &744764634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744764633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.28, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 793853747}
+  - {fileID: 704975776}
+  m_Father: {fileID: 560252662}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &793853746
 GameObject:
   m_ObjectHideFlags: 0
@@ -3695,9 +3938,6 @@ GameObject:
   - component: {fileID: 793853747}
   - component: {fileID: 793853749}
   - component: {fileID: 793853748}
-  - component: {fileID: 793853750}
-  - component: {fileID: 793853751}
-  - component: {fileID: 793853752}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -3714,12 +3954,11 @@ Transform:
   m_GameObject: {fileID: 793853746}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.278, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 704975776}
-  m_Father: {fileID: 560252662}
+  m_Children: []
+  m_Father: {fileID: 744764634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &793853748
 MeshRenderer:
@@ -3778,58 +4017,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793853746}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &793853750
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793853746}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.50000006
-  m_Height: 2.0000002
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &793853751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793853746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46fbc3fd23733ff42ab89ada21f2db73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
-  header: TEAM A
-  body: 
-  DisplayDelay: 0.1
---- !u!114 &793853752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793853746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b6530d6ec90684d9700eb04cd74a99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  canInteract: 1
-  toolTipTriggerMap: {fileID: 793853751}
 --- !u!1 &828144660
 GameObject:
   m_ObjectHideFlags: 0
@@ -4140,6 +4327,7 @@ Transform:
   - {fileID: 1971792573}
   - {fileID: 1036384828}
   - {fileID: 560252662}
+  - {fileID: 1885114496}
   m_Father: {fileID: 206991167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &872144624
@@ -5044,7 +5232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Home
   body: This is where you live.
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &1084903937
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5152,23 +5340,113 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 1084903936}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 1084903936}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1084903942}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1104707025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1104707026}
+  - component: {fileID: 1104707028}
+  - component: {fileID: 1104707027}
+  m_Layer: 0
+  m_Name: Capsule Inner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1104707026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104707025}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 391527522}
+  m_LocalEulerAnglesHint: {x: 3.388, y: 44.851, z: -16.694}
+--- !u!23 &1104707027
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104707025}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a54dc3db88c7319469104ad67645af20, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1104707028
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104707025}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1156964643
 GameObject:
   m_ObjectHideFlags: 0
@@ -5220,18 +5498,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 1156964646}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 1156964646}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1156964645}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5251,7 +5529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Home
   body: This is where you live.
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &1156964647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5472,6 +5750,99 @@ Transform:
   - {fileID: 528055811}
   m_Father: {fileID: 615161204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1357399421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357399422}
+  - component: {fileID: 1357399423}
+  m_Layer: 0
+  m_Name: PotentalPathTracer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1357399422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357399421}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 388010570}
+  m_Father: {fileID: 1885114496}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357399423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357399421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineContainer
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 0
+        y: 0
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: 0.0067804973
+          y: 1.4561621e-11
+          z: -0.035871036
+          w: 0.99933344
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1 &1361391769
 GameObject:
   m_ObjectHideFlags: 0
@@ -5652,6 +6023,189 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375626876}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1392054045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1392054046}
+  - component: {fileID: 1392054047}
+  m_Layer: 0
+  m_Name: PathTracer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1392054046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392054045}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1619558356}
+  m_Father: {fileID: 1885114496}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1392054047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392054045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineContainer
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 0
+        y: 0
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: 0.022171179
+          y: -2.331953e-10
+          z: -0.051315587
+          w: 0.9984364
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
+--- !u!1 &1401494330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401494331}
+  - component: {fileID: 1401494335}
+  - component: {fileID: 1401494334}
+  m_Layer: 0
+  m_Name: Capsule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1401494331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401494330}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 391527522}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1401494334
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401494330}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3c5731de4f9d34f4b96d259ba2cf96e0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1401494335
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401494330}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1426540281
 GameObject:
   m_ObjectHideFlags: 0
@@ -5793,18 +6347,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 1468268938}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 1468268938}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1468268937}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5824,7 +6378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Home
   body: This is where you live.
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &1468268939
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6061,7 +6615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Test4
   body: TestNode
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &1508716172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6169,23 +6723,129 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 1508716171}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 1508716171}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1508716176}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1619558355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1619558356}
+  - component: {fileID: 1619558359}
+  - component: {fileID: 1619558358}
+  - component: {fileID: 1619558357}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1619558356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619558355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.000000059604645, z: 0}
+  m_LocalScale: {x: 0.10000001, y: 0.10000001, z: 0.10000001}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1392054046}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619558357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619558355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276a7a7f10bdcc948a0f2453ba2e9e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NavigatorPathTracer
+  m_Spline: {fileID: 1392054047}
+  m_Duration: 2
+  m_Puased: 1
+--- !u!23 &1619558358
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619558355}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c0fbf52a21b80fa47a3475a14372964b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1619558359
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619558355}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1667772055
 GameObject:
   m_ObjectHideFlags: 0
@@ -6789,6 +7449,191 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840125857}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1885114495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1885114496}
+  - component: {fileID: 1885114502}
+  - component: {fileID: 1885114501}
+  - component: {fileID: 1885114500}
+  - component: {fileID: 1885114499}
+  - component: {fileID: 1885114498}
+  - component: {fileID: 1885114497}
+  m_Layer: 0
+  m_Name: NavigatorB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1885114496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885114495}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.126, y: 0.0507, z: -0.565}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 391527522}
+  - {fileID: 1392054046}
+  - {fileID: 1357399422}
+  m_Father: {fileID: 861564701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1885114497
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885114495}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Height: 0.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.28, z: 0}
+--- !u!114 &1885114498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885114495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1ae1e7f1cf7e443b8f97df58df3be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  nav: {fileID: 1885114500}
+  TestStart: {fileID: 348589642}
+  TestEnd: {fileID: 1468268936}
+  Move:
+    m_Name: Move
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 7835defb-24a4-43db-b4ca-dc84a0bfe130
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: aadf618c-2ea5-407c-b1cb-8e2164c01c38
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 0
+    m_Flags: 0
+  MouseDown:
+    m_Name: Mouse Down
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: a7950cee-2e13-4361-8a1e-b57ab8f6fc3e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: cf8d1b2d-cc66-4ac8-b2fd-2a5fcf5b5957
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouse Down
+      m_Flags: 0
+    m_Flags: 0
+  Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1885114500}
+        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
+        m_MethodName: UpdateToNewPath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1885114499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885114495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85e5ecf9cb77cd4c83cb160018c5f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AStarMap
+  Nodes: {fileID: 1036384827}
+--- !u!114 &1885114500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885114495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f82e6874967bf842982d4540c6c1df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  m_Map: {fileID: 1885114499}
+  m_pathTracer: {fileID: 1392054047}
+  m_PotentalpathTracer: {fileID: 1357399423}
+--- !u!114 &1885114501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885114495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46fbc3fd23733ff42ab89ada21f2db73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
+  header: TEAM B
+  body: 
+  DisplayDelay: 0.3
+--- !u!114 &1885114502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885114495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b6530d6ec90684d9700eb04cd74a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  canInteract: 1
+  m_Controller: {fileID: 206991169}
+  toolTipTriggerMap: {fileID: 1885114501}
 --- !u!1 &1903870555
 GameObject:
   m_ObjectHideFlags: 0
@@ -7420,18 +8265,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
   canInteract: 1
-  toolTipTriggerMap: {fileID: 2130146254}
-  m_myNavigator: {fileID: 560252665}
-  Event:
+  m_Controller: {fileID: 206991169}
+  m_ToolTipTriggerMap: {fileID: 2130146254}
+  m_Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560252665}
-        m_TargetAssemblyTypeName: AStarNavigator, Assembly-CSharp
-        m_MethodName: UpdateToNewPath
-        m_Mode: 1
+      - m_Target: {fileID: 206991169}
+        m_TargetAssemblyTypeName: MapController, Assembly-CSharp
+        m_MethodName: SetSelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2130146253}
+          m_ObjectArgumentAssemblyTypeName: TopDownInteraction, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7451,7 +8296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
   header: Home
   body: This is where you live.
-  DisplayDelay: 0.1
+  DisplayDelay: 0.2
 --- !u!65 &2130146255
 BoxCollider:
   m_ObjectHideFlags: 0

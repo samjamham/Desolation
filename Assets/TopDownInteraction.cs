@@ -4,10 +4,8 @@ using UnityEngine;
 public class TopDownInteraction : MonoBehaviour, ITopDownViewInteractable
 {
     [SerializeField] private bool canInteract;
-    public virtual void Interact()
-    {
-
-    }
+    [SerializeField] protected MapController m_Controller;
+    
     public virtual bool CanInteract()
     {
         return canInteract;
@@ -20,5 +18,17 @@ public class TopDownInteraction : MonoBehaviour, ITopDownViewInteractable
     public virtual void OnMouseExit()
     {
 
+    }
+    public virtual void Interact()
+    {
+
+    }
+
+    public virtual void GetSelected()
+    {
+
+    }
+    public virtual void GetDeselected()
+    {
     }
 }

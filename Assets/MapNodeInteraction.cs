@@ -3,14 +3,13 @@ using UnityEngine.Events;
 
 public class MapNodeInteraction : TopDownInteraction
 {
-    [SerializeField] ToolTipTriggerMap toolTipTriggerMap;
-    private AStarNode m_myNode;
-    [SerializeField] private AStarNavigator m_myNavigator;
-    [SerializeField] UnityEvent Event;
+    [SerializeField] ToolTipTriggerMap m_ToolTipTriggerMap;
+    private AStarNode m_MyNode;
+    [SerializeField] UnityEvent m_Event;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        m_myNode = GetComponent<AStarNode>();
+        m_MyNode = GetComponent<AStarNode>();
     }
 
     // Update is called once per frame
@@ -18,24 +17,33 @@ public class MapNodeInteraction : TopDownInteraction
     {
         
     }
-    public override void Interact()
-    {
-        Debug.Log($"Hi im {this}");
-        Event.Invoke();
+
+    public AStarNode GetNode()
+    { 
+        return m_MyNode; 
     }
+
     public override void OnMouseEnter()
     {
-        toolTipTriggerMap.HoverTriggerEnter();
-        m_myNavigator?.FindPotenalPath(m_myNode);
+        m_Controller.SetHovered(this);
+        m_ToolTipTriggerMap.HoverTriggerEnter();
+
     }
     public override void OnMouseExit()
     {
-        m_myNavigator?.ClearPotentalPath();
-        toolTipTriggerMap.HoverTriggerExit();
-    }
-    public void ChangeNavigator(AStarNavigator Navi)
+        m_Controller.SetHovered(null);
+        m_ToolTipTriggerMap.HoverTriggerExit();
+    }    
+    public override void Interact()
     {
-        m_myNavigator = Navi;
+        TopDownInteraction TDint = m_Controller.GetSelection();
+        if (TDint != null && TDint is NavigatorInteraction)
+        {
+            TDint.TryGetComponent(out AStarNavigator Navi);
+            Navi.UpdateToNewPath();
+            m_Controller.SetSelection(null);
+            return;
+        }
+        m_Controller.SetSelection(this);
     }
-
 }
