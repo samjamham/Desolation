@@ -28,7 +28,7 @@ public class ToolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     }
 
-    protected void DisplayToolTip(string header, string body)
+    protected void DisplayToolTip()
     {
         delay = true;
         StartCoroutine(DisplayOnDelay(DisplayDelay));

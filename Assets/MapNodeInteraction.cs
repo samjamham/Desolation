@@ -5,7 +5,6 @@ public class MapNodeInteraction : TopDownInteraction
 {
     [SerializeField] ToolTipTriggerMap m_ToolTipTriggerMap;
     private AStarNode m_MyNode;
-    [SerializeField] UnityEvent m_Event;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

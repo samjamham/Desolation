@@ -28,24 +28,25 @@ public class MapController : MonoBehaviour
     }
     public void SetHovered(TopDownInteraction Interactable)
     {
+        m_CurrentHover = Interactable;
         if (m_CurrentSelection == null)
             return;
-        Navi_NodeInteraction(Interactable);
+        Navi_NodeInteraction();
     }
     public TopDownInteraction GetHovered()
     {
         return m_CurrentHover;
     }
 
-    void Navi_NodeInteraction(TopDownInteraction Interactable)
+    void Navi_NodeInteraction()
     {
-        if (Interactable == null && m_CurrentSelection is NavigatorInteraction)
+        if (m_CurrentHover == null && m_CurrentSelection is NavigatorInteraction)
         {
             m_CurrentSelection.GetComponent<AStarNavigator>().ClearPotentalPath();
         }
-        else if(Interactable is MapNodeInteraction && m_CurrentSelection is NavigatorInteraction)
+        else if(m_CurrentHover is MapNodeInteraction && m_CurrentSelection is NavigatorInteraction)
         {
-            m_CurrentSelection.GetComponent<AStarNavigator>().FindPotenalPath(Interactable.GetComponent<MapNodeInteraction>().GetNode());
+            m_CurrentSelection.GetComponent<AStarNavigator>().FindPotenalPath(m_CurrentHover.GetComponent<MapNodeInteraction>().GetNode());
         }
 
     }    

@@ -12,7 +12,7 @@ public class ToolTipTriggerMap : ToolTipTrigger
         {
             return;
         }
-        DisplayToolTip(header, body);
+        DisplayToolTip();
     }
     public void HoverTriggerExit()
     {

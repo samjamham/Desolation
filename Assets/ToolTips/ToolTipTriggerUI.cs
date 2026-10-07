@@ -7,7 +7,7 @@ public class ToolTipTriggerUI : ToolTipTrigger
 {
     public override void OnPointerEnter(PointerEventData eventData)
     {
-        DisplayToolTip(header, body);
+        DisplayToolTip();
     }
     public override void OnPointerExit(PointerEventData eventData)
     {

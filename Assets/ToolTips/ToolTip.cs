@@ -12,7 +12,6 @@ public class ToolTip : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bodyField;
     [SerializeField] private LayoutElement LayoutElement;
     [SerializeField] private InputAction MousePos;
-    [SerializeField] private InputAction MouseClick;
     private Vector2 MousePosition;
     private Vector2 PivotPoint;
     private RectTransform RectTransform;
@@ -22,20 +21,11 @@ public class ToolTip : MonoBehaviour
     {
         gameObject.SetActive(false);
         MousePos.Enable();
-        MouseClick.Enable();
         RectTransform = (RectTransform)transform;
-    }
-    void OnMouseClick()
-    {
-        gameObject.SetActive(false);
     }
     private void Update()
     {
         UpdatePosition();
-        MouseClick.performed += context =>
-        {
-            OnMouseClick();
-        };
     }
     void UpdatePosition()
     {
