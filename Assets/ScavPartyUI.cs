@@ -13,11 +13,12 @@ public class ScavPartyUI : MonoBehaviour
     [SerializeField] private Sprite[] m_Sprites;
     [SerializeField] private UnityEvent m_DisplayEvent;
     [SerializeField] private UnityEvent m_HideEvent;
+    private MapController m_MapController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        m_MapController = GameObject.FindGameObjectWithTag("ScryMap").GetComponent<MapController>();
     }
 
     // Update is called once per frame
@@ -37,6 +38,10 @@ public class ScavPartyUI : MonoBehaviour
         {
             CreatePartyMemberDispaly(IDs[i]);
         }
+    }
+    public void DeseletScavParty()
+    {
+        m_MapController.SetSelection(null);
     }
     public void HideScavPartyUI()
     {
