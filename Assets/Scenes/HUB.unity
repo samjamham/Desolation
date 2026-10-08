@@ -17727,10 +17727,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1932024706}
   - component: {fileID: 1932024707}
-  - component: {fileID: 1932024708}
   m_Layer: 0
   m_Name: ScavPartyActiveContainer
-  m_TagString: Untagged
+  m_TagString: ScavPartyUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17767,7 +17766,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3f282b08a13bb449ce5fa770515976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  m_Event:
+  m_Layout: {fileID: 1969460210}
+  m_Prefab: {fileID: 5209856520598899130, guid: c100455238014d845aff91e29f4faf54, type: 3}
+  m_Sprites:
+  - {fileID: 1124375081, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: 1530877462, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: 1115510076, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: -2023973722, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: 857762292, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: -928484149, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: -1294224777, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: -1904923766, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: -2000512327, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: -2135319169, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: -1665119916, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  - {fileID: 2077817957, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
+  m_DisplayEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1279554224}
@@ -17782,27 +17796,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  m_Layout: {fileID: 1969460210}
-  m_Prefab: {fileID: 5209856520598899130, guid: c100455238014d845aff91e29f4faf54, type: 3}
---- !u!114 &1932024708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932024705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc792e497761c9f4d959bb0df469df75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  m_UnityEvent:
+  m_HideEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1932024707}
-        m_TargetAssemblyTypeName: ScavPartyUI, Assembly-CSharp
-        m_MethodName: DisplayScavParty
-        m_Mode: 3
+      - m_Target: {fileID: 1279554224}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17811,23 +17811,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_input:
-    m_Name: Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: ed9c1c19-1d35-4d14-94c1-f85d428c577e
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 3aaedde5-b1c8-486c-b980-2b9198018483
-      m_Path: <Keyboard>/o
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Input
-      m_Flags: 0
-    m_Flags: 0
 --- !u!1 &1942962883
 GameObject:
   m_ObjectHideFlags: 0

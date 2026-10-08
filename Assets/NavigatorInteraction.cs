@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class NavigatorInteraction : TopDownInteraction
 {
-    [SerializeField] ToolTipTriggerMap toolTipTriggerMap;
+    [SerializeField] ToolTipTriggerMap m_ToolTipTriggerMap;
+    [SerializeField] int[] m_ImageIDs;
+    private ScavPartyUI m_PartyUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        m_PartyUI = GameObject.FindGameObjectWithTag("ScavPartyUI").GetComponent<ScavPartyUI>();
     }
 
     // Update is called once per frame
@@ -21,12 +23,21 @@ public class NavigatorInteraction : TopDownInteraction
     public override void OnMouseEnter()
     {
         m_Controller.SetHovered(this);
-        toolTipTriggerMap.HoverTriggerEnter();
+        m_ToolTipTriggerMap.HoverTriggerEnter();
 
     }
     public override void OnMouseExit()
     {
         m_Controller.SetHovered(null);
-        toolTipTriggerMap.HoverTriggerExit();
+        m_ToolTipTriggerMap.HoverTriggerExit();
+    }
+
+    public override void GetSelected()
+    {
+        m_PartyUI?.DisplayScavPartyUI(m_ImageIDs);
+    }
+    public override void GetDeselected()
+    {
+        m_PartyUI?.HideScavPartyUI();
     }
 }
