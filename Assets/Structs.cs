@@ -18,4 +18,8 @@ public class Structs
         //TODO ADD:
         //inventory 
     }
+    public struct Locatiom
+    {
+
+    }
 }

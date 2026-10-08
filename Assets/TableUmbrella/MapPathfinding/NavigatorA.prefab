@@ -53,7 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   canInteract: 1
   m_Controller: {fileID: 0}
-  toolTipTriggerMap: {fileID: 5258794019352233851}
+  m_ToolTipTriggerMap: {fileID: 0}
+  m_ImageIDs: 00000000000000000000000000000000
 --- !u!114 &5258794019352233851
 MonoBehaviour:
   m_ObjectHideFlags: 0
