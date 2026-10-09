@@ -29,6 +29,7 @@ public class MapInteraction : FirstPersonInteraction
         TopDownCam.GetComponent<TDCFacePlayer>().RotateToPlayer(); //Maybe dont use
         ScryMapDrag.GetComponent<ScryMapDrag>().SetViewAngle(TopDownCam.transform.rotation.eulerAngles.y); //Maybe dont use
         StartCoroutine(SwitchContorlMethods());
+        ScryMapDrag.GetComponent<ScryMapDrag>().OnEnterTopDown();
     }
 
     IEnumerator SwitchContorlMethods()

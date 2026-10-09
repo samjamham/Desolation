@@ -5,10 +5,12 @@ public class NavigatorInteraction : TopDownInteraction
     [SerializeField] ToolTipTriggerMap m_ToolTipTriggerMap;
     [SerializeField] int[] m_ImageIDs;
     private ScavPartyUI m_PartyUI;
+    private AStarNavigator m_Navigator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         m_PartyUI = GameObject.FindGameObjectWithTag("ScavPartyUI").GetComponent<ScavPartyUI>();
+        m_Navigator = gameObject.GetComponent<AStarNavigator>();
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class NavigatorInteraction : TopDownInteraction
 
     public override void GetSelected()
     {
-        m_PartyUI?.DisplayScavPartyUI(m_ImageIDs);
+        m_PartyUI?.DisplayScavPartyUI(m_ImageIDs, gameObject.GetComponent<AStarNavigator>().GetNightTravel());
     }
     public override void GetDeselected()
     {

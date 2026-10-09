@@ -6505,6 +6505,7 @@ MonoBehaviour:
   m_Controller: {fileID: 206991169}
   m_ToolTipTriggerMap: {fileID: 1885114501}
   m_ImageIDs: 0100000003000000070000000b000000
+  m_NightTravel: 0
 --- !u!1 &1903870555
 GameObject:
   m_ObjectHideFlags: 0
@@ -7408,6 +7409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NavigatorA
       objectReference: {fileID: 0}
+    - target: {fileID: 1029190362234015092, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_Navigator
+      value: 
+      objectReference: {fileID: 560252665}
     - target: {fileID: 1029190362234015092, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_Controller
       value: 

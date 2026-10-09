@@ -4,6 +4,7 @@ public class MapController : MonoBehaviour
 {
     [SerializeField] private TopDownInteraction m_CurrentSelection;
     [SerializeField] private TopDownInteraction m_CurrentHover;
+    private PlayerManager.Playmode m_playmode;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,9 +16,21 @@ public class MapController : MonoBehaviour
     {
         
     }
+    public void EnterTopDown()
+    {
+        m_playmode = PlayerManager.Playmode.TopDown;
+    }
+    public void ReturnToPlayer()
+    {
+        SetSelection(null);
+        SetHovered(null);
+        m_playmode = PlayerManager.Playmode.FirstPerson;
+    }
 
     public void SetSelection(TopDownInteraction Interactable)
     {
+        if (m_playmode == PlayerManager.Playmode.FirstPerson)
+            return;
         m_CurrentSelection?.GetDeselected();
         Interactable?.GetSelected();
         m_CurrentSelection = Interactable;
@@ -28,6 +41,8 @@ public class MapController : MonoBehaviour
     }
     public void SetHovered(TopDownInteraction Interactable)
     {
+        if (m_playmode == PlayerManager.Playmode.FirstPerson)
+            return;
         m_CurrentHover = Interactable;
         if (m_CurrentSelection == null)
             return;
@@ -48,6 +63,14 @@ public class MapController : MonoBehaviour
         {
             m_CurrentSelection.GetComponent<AStarNavigator>().FindPotenalPath(m_CurrentHover.GetComponent<MapNodeInteraction>().GetNode());
         }
+    }    
 
+    public void SetNightTravel(bool value)
+    {
+        if (m_CurrentSelection is not NavigatorInteraction)
+        {
+            return;
+        }
+        m_CurrentSelection.gameObject.GetComponent<AStarNavigator>().SetNightTravel(value);
     }    
 }

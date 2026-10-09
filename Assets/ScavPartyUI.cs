@@ -14,11 +14,13 @@ public class ScavPartyUI : MonoBehaviour
     [SerializeField] private UnityEvent m_DisplayEvent;
     [SerializeField] private UnityEvent m_HideEvent;
     private MapController m_MapController;
+    [SerializeField] private Toggle m_Toggle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         m_MapController = GameObject.FindGameObjectWithTag("ScryMap").GetComponent<MapController>();
+
     }
 
     // Update is called once per frame
@@ -27,8 +29,9 @@ public class ScavPartyUI : MonoBehaviour
         
     }
 
-    public void DisplayScavPartyUI(int[] IDs)
+    public void DisplayScavPartyUI(int[] IDs, bool NightTravel)
     {
+        m_Toggle.SetIsOnWithoutNotify(NightTravel);
         m_DisplayEvent.Invoke();
         for (int i = m_Layout.transform.childCount - 1; i >= 0; i--)
         {
@@ -38,6 +41,12 @@ public class ScavPartyUI : MonoBehaviour
         {
             CreatePartyMemberDispaly(IDs[i]);
         }
+
+    }
+    private void CreatePartyMemberDispaly(int ID)
+    {
+        GameObject prefab = GameObject.Instantiate(m_Prefab, m_Layout.transform);
+        prefab.GetComponent<UnityEngine.UI.Image>().sprite = m_Sprites[ID];
     }
     public void DeseletScavParty()
     {
@@ -48,9 +57,9 @@ public class ScavPartyUI : MonoBehaviour
         m_HideEvent.Invoke();
     }
 
-    private void CreatePartyMemberDispaly(int ID)
+    public void SetNightTravel()
     {
-        GameObject prefab = GameObject.Instantiate(m_Prefab, m_Layout.transform);
-        prefab.GetComponent<UnityEngine.UI.Image>().sprite = m_Sprites[ID];
-    }
+        bool value = m_Toggle.isOn;
+        m_MapController?.SetNightTravel(value);
+    }    
 }

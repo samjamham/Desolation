@@ -50,7 +50,10 @@ public class ScryMapDrag : MonoBehaviour
     {
         Rotation = value;
     }    
-
+    public void OnEnterTopDown()
+    {
+        ScryMap.GetComponent<MapController>().EnterTopDown();
+    }
     void OnReturnToPlayer(InputValue value)
     {  
         this.GetComponent<PlayerInput>().enabled = false;
@@ -60,6 +63,7 @@ public class ScryMapDrag : MonoBehaviour
         PlayerManager.ChangePlayMode(PlayerManager.Playmode.FirstPerson);
         Player.GetComponent<PlayerInput>().enabled = true;
         CameraManager.SwapCamTo(PlayerCamera);
+        ScryMap.GetComponent<MapController>().ReturnToPlayer();
     }
 
     void OnMouseHold(InputValue value)
