@@ -3,10 +3,18 @@ using UnityEngine;
 
 public class ScavLocation : MonoBehaviour
 {
-    [SerializeField] private int[] m_Items;
+    [SerializeField] private Item[] m_Items;
 
-    List<int> SearchScavLocation()
+    public List<Item> SearchScavLocation(Structs.ScavParty Party)
     {
-        return new List<int> { 0 };
+        List<Item> list = new List<Item>();
+        //Find items based on whats to find and who the skill of those looking
+        foreach(Dweller dweller in Party.dwellers) 
+        {
+
+            list.Add(m_Items[Random.Range(0, m_Items.Length)]);
+        }
+
+        return list;
     }
 }

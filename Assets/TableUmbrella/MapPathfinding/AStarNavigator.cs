@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using Unity.GraphToolkit.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,6 +23,11 @@ public class AStarNavigator : MonoBehaviour
     {      
         m_PotentalPath = new List<AStarNode>();
     }
+
+    public void Update()
+    {
+    }
+
     public void FindStartPath(AStarNode Start, AStarNode End)
     {
         m_Path = A_Star(Start, End);
@@ -106,6 +112,7 @@ public class AStarNavigator : MonoBehaviour
         m_Map.ClearParents();
         return new List<AStarNode> { start };
     }
+
     private List<AStarNode> RetracePath(AStarNode end, AStarNode start)
     {
         List<AStarNode> Path = new List<AStarNode>();
@@ -118,19 +125,24 @@ public class AStarNavigator : MonoBehaviour
         Path.Add(start);
         return Path;
     }
-    public void Update()
-    {
-    }
 
-    public void OnCycleChange(bool IsNight)
+    public bool IsAtEndOfPath()
     {
-        MoveToNextNode();
+        if (m_Path.Count == 1)
+            return true;
+        return false;
     }
-    private void MoveToNextNode()
+    public AStarNode GetCurrentNode()
+    {
+        if (m_Path.Count == 0) 
+            return null;
+        return m_Path[0];
+    }
+    public void MoveToNextNode()
     {
         if (m_Path.Count > 1)
         {
-            if (m_CurrentNode.GetNeighbours().Contains(m_Path[1]))
+            if (m_CurrentNode.GetNeighbours().Contains(m_Path[1])) //REDO
             {
                 transform.position = m_Path[1].transform.position;
                 m_Path.RemoveAt(0);
@@ -149,11 +161,11 @@ public class AStarNavigator : MonoBehaviour
         }
     }
 
-    public void AddNode(AStarNode node)
+    public void AddNodeToLocalMap(AStarNode node)
     {
         m_Map.AddNode(node);    
     }
-    public void RemoveNode(AStarNode node)
+    public void RemoveNodeToLocalMap(AStarNode node)
     {
         m_Map.RemoveNode(node);
     }

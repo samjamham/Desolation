@@ -31,7 +31,7 @@ public class NodeCreator : MonoBehaviour
                 Cube.transform.position = new Vector3(-1, 0, 1);
                 Node.GetComponent<HoverTest>().ChangeNavigator(Navi);
                 nodeA = Node.GetComponent<AStarNode>();
-                Navi.AddNode(nodeA);
+                Navi.AddNodeToLocalMap(nodeA);
                 nodeA.AddNeighbourTwoWay(nodeB);
                 nodeA.AddNeighbourTwoWay(nodeC);
             }
@@ -39,7 +39,7 @@ public class NodeCreator : MonoBehaviour
             {
                 nodeA.RemoveNeighbourTwoWay(nodeB);
                 nodeA.RemoveNeighbourTwoWay(nodeC);
-                Navi.RemoveNode(nodeA);
+                Navi.RemoveNodeToLocalMap(nodeA);
                 Destroy(Node);
             }
 
