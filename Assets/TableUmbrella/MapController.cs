@@ -55,11 +55,11 @@ public class MapController : MonoBehaviour
 
     void Navi_NodeInteraction()
     {
-        if (m_CurrentHover == null && m_CurrentSelection is NavigatorInteraction)
+        if (m_CurrentHover == null && m_CurrentSelection is ScavPartyInteraction)
         {
             m_CurrentSelection.GetComponent<AStarNavigator>().ClearPotentalPath();
         }
-        else if(m_CurrentHover is MapNodeInteraction && m_CurrentSelection is NavigatorInteraction)
+        else if(m_CurrentHover is MapNodeInteraction && m_CurrentSelection is ScavPartyInteraction)
         {
             m_CurrentSelection.GetComponent<AStarNavigator>().FindPotenalPath(m_CurrentHover.GetComponent<MapNodeInteraction>().GetNode());
         }
@@ -67,10 +67,10 @@ public class MapController : MonoBehaviour
 
     public void SetNightTravel(bool value)
     {
-        if (m_CurrentSelection is not NavigatorInteraction)
+        if (m_CurrentSelection is not ScavPartyInteraction)
         {
             return;
         }
-        m_CurrentSelection.gameObject.GetComponent<AStarNavigator>().SetNightTravel(value);
+        m_CurrentSelection.gameObject.GetComponent<ScavParty>().SetNightTravel(value);
     }    
 }

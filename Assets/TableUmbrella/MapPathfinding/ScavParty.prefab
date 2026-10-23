@@ -9,13 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7672779846227072775}
+  - component: {fileID: 1085769786286692218}
+  - component: {fileID: 5964523143940786485}
   - component: {fileID: 1029190362234015092}
   - component: {fileID: 5258794019352233851}
   - component: {fileID: 1417585499865638124}
   - component: {fileID: 4734377197155135016}
-  - component: {fileID: 1085769786286692218}
   m_Layer: 0
-  m_Name: NavigatorA
+  m_Name: ScavParty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,6 +40,42 @@ Transform:
   - {fileID: 2554559649259485153}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1085769786286692218
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965659571272959151}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Height: 0.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.28, z: 0}
+--- !u!114 &5964523143940786485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965659571272959151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8938627fa37fc449864ed94f6b37b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScavParty
+  m_Navi: {fileID: 0}
 --- !u!114 &1029190362234015092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,10 +85,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 965659571272959151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b6530d6ec90684d9700eb04cd74a99, type: 3}
+  m_Script: {fileID: 11500000, guid: f6b7b5211bf4d5947a90ca3c877fa677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  canInteract: 1
+  canInteract: 0
   m_Controller: {fileID: 0}
   m_ToolTipTriggerMap: {fileID: 0}
   m_ImageIDs: 00000000000000000000000000000000
@@ -98,29 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AStarMap
   Nodes: {fileID: 0}
---- !u!136 &1085769786286692218
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965659571272959151}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.1
-  m_Height: 0.4
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.28, z: 0}
 --- !u!1 &1899271177103290626
 GameObject:
   m_ObjectHideFlags: 0

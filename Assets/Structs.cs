@@ -1,25 +1,15 @@
+using System;
 using UnityEngine;
 
 public class Structs
 {
-    public struct Dweller
-    {
-        public string Name;
-        //TODO ADD:
-        //Model / sprite
-        //stats?
-        //Special abilities s
-    }
+    [Serializable]
     public struct ScavParty
     {
-        public Dweller[] partyMembers;
+        public Dweller[] dwellers;
         public int remainingFood;
         public int remainingWater;
         //TODO ADD:
         //inventory 
-    }
-    public struct Locatiom
-    {
-
     }
 }

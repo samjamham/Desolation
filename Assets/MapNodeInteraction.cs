@@ -36,7 +36,7 @@ public class MapNodeInteraction : TopDownInteraction
     public override void Interact()
     {
         TopDownInteraction TDint = m_Controller.GetSelection();
-        if (TDint != null && TDint is NavigatorInteraction)
+        if (TDint != null && TDint is ScavPartyInteraction)
         {
             TDint.TryGetComponent(out AStarNavigator Navi);
             Navi.UpdateToNewPath();

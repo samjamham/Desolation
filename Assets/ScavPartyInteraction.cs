@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NavigatorInteraction : TopDownInteraction
+public class ScavPartyInteraction : TopDownInteraction
 {
     [SerializeField] ToolTipTriggerMap m_ToolTipTriggerMap;
     [SerializeField] int[] m_ImageIDs;
@@ -36,7 +36,7 @@ public class NavigatorInteraction : TopDownInteraction
 
     public override void GetSelected()
     {
-        m_PartyUI?.DisplayScavPartyUI(m_ImageIDs, gameObject.GetComponent<AStarNavigator>().GetNightTravel());
+        m_PartyUI?.DisplayScavPartyUI(GetComponent<ScavParty>().GetScavParty(), gameObject.GetComponent<ScavParty>().GetNightTravel());
     }
     public override void GetDeselected()
     {

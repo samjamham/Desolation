@@ -16,12 +16,11 @@ public class AStarNavigator : MonoBehaviour
     [SerializeField] private SplineContainer m_pathTracer;
     [SerializeField] private SplineContainer m_PotentalpathTracer;
     private AStarNode m_CurrentNode;
-    private bool m_WillTravelAtNight;
+
 
     public void Start()
     {      
         m_PotentalPath = new List<AStarNode>();
-        m_WillTravelAtNight = false;
     }
     public void FindStartPath(AStarNode Start, AStarNode End)
     {
@@ -57,7 +56,6 @@ public class AStarNavigator : MonoBehaviour
         m_pathTracer.gameObject.GetComponentInChildren<NavigatorPathTracer>().TracerReset(true, m_Path.Count - 1);
         m_PotentalpathTracer.Spline.Clear();
         m_PotentalpathTracer.GetComponentInChildren<NavigatorPathTracer>().TracerReset(false);
-
     }
 
     private List<AStarNode> A_Star(AStarNode start, AStarNode end)
@@ -124,13 +122,8 @@ public class AStarNavigator : MonoBehaviour
     {
     }
 
-    public void OnMove(bool IsNight)
+    public void OnCycleChange(bool IsNight)
     {
-        if (IsNight && !m_WillTravelAtNight)
-        {
-            //Do Scavenging 
-            return;
-        }
         MoveToNextNode();
     }
     private void MoveToNextNode()
@@ -176,14 +169,5 @@ public class AStarNavigator : MonoBehaviour
         }
         nSpline.SetTangentMode(TangentMode.AutoSmooth);
         return nSpline;
-    }
-
-    public void SetNightTravel(bool Value)
-    {
-        m_WillTravelAtNight = Value;
-    }
-    public bool GetNightTravel()
-    {
-        return m_WillTravelAtNight;
     }
 }

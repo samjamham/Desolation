@@ -9,7 +9,7 @@ public class CycleManager : MonoBehaviour
     public int CyclePhase { get; private set; }
     public int CycleDay { get; private set; }
 
-    [SerializeField] UnityEvent<bool> Cycleprogess;
+    public UnityEvent<bool> m_CyclProgess;
 
     private void Awake()
     {
@@ -19,12 +19,8 @@ public class CycleManager : MonoBehaviour
     private void Start()
     {
         SetCycle(0,0); //DEBUG ONLY
-        if (Cycleprogess == null)
-            Cycleprogess = new UnityEvent<bool>();
-        foreach (AStarNavigator Navis in GameObject.FindObjectsByType(typeof(AStarNavigator)))
-        {
-            Cycleprogess.AddListener(Navis.OnMove);
-        }
+        if (m_CyclProgess == null)
+            m_CyclProgess = new UnityEvent<bool>();
     }
     private void Update()
     {
@@ -47,7 +43,7 @@ public class CycleManager : MonoBehaviour
             IsNight = true;
         }
         Debug.Log($"Cycle:{CyclePhase}, Day:{ CycleDay}");
-        Cycleprogess.Invoke(IsNight);
+        m_CyclProgess.Invoke(IsNight);
     }
 
 }

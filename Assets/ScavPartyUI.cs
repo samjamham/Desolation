@@ -10,7 +10,6 @@ using UnityEngine.UI;
 public class ScavPartyUI : MonoBehaviour
 {   [SerializeField] private GameObject m_Layout;
     [SerializeField] private GameObject m_Prefab;
-    [SerializeField] private Sprite[] m_Sprites;
     [SerializeField] private UnityEvent m_DisplayEvent;
     [SerializeField] private UnityEvent m_HideEvent;
     private MapController m_MapController;
@@ -29,7 +28,7 @@ public class ScavPartyUI : MonoBehaviour
         
     }
 
-    public void DisplayScavPartyUI(int[] IDs, bool NightTravel)
+    public void DisplayScavPartyUI(Structs.ScavParty ScavParty, bool NightTravel)
     {
         m_Toggle.SetIsOnWithoutNotify(NightTravel);
         m_DisplayEvent.Invoke();
@@ -39,14 +38,14 @@ public class ScavPartyUI : MonoBehaviour
         }
         for (int i = 0; i <= 3; i++)
         {
-            CreatePartyMemberDispaly(IDs[i]);
+            CreatePartyMemberDispaly(ScavParty.dwellers[i]);
         }
 
     }
-    private void CreatePartyMemberDispaly(int ID)
+    private void CreatePartyMemberDispaly(Dweller Dweller)
     {
         GameObject prefab = GameObject.Instantiate(m_Prefab, m_Layout.transform);
-        prefab.GetComponent<UnityEngine.UI.Image>().sprite = m_Sprites[ID];
+        prefab.GetComponent<UnityEngine.UI.Image>().sprite = Dweller.m_Sprite;
     }
     public void DeseletScavParty()
     {
