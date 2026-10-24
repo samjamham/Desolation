@@ -7,4 +7,13 @@ public class ScavLocationUI : TopDownUI
     {
         
     }
+    public void DisplayScavLocationUI(Item[] Items)
+    {
+        DisplayUI();
+    }    
+    public void HideScavLocationUI()
+    {
+        HideUI();
+    }
+
 }

@@ -17,4 +17,9 @@ public class ScavLocation : MonoBehaviour
 
         return list;
     }
+
+    public Item[] GetFoundItems()
+    { 
+        return m_Items; 
+    }
 }

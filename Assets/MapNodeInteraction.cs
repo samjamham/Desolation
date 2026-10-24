@@ -51,10 +51,10 @@ public class MapNodeInteraction : TopDownInteraction
     }
     public override void OnSelected()
     {
-        m_LocationUI?.DisplayUI();
+        m_LocationUI?.DisplayScavLocationUI(gameObject.GetComponent<ScavLocation>().GetFoundItems());
     }
     public override void OnDeselected()
     {
-        m_LocationUI?.HideUI();
+        m_LocationUI?.HideScavLocationUI();
     }
 }
