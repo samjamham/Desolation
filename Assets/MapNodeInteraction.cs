@@ -35,6 +35,18 @@ public class MapNodeInteraction : TopDownInteraction
     }    
     public override void Interact()
     {
+        //TopDownInteraction TDint = m_Controller.GetSelection();
+        //if (TDint != null && TDint is ScavPartyInteraction)
+        //{
+        //    TDint.TryGetComponent(out AStarNavigator Navi);
+        //    Navi.UpdateToNewPath();
+        //    m_Controller.SetSelection(null);
+        //    return;
+        //}
+        m_Controller.SetSelection(this);
+    }
+    public override void InteractAlt()
+    {
         TopDownInteraction TDint = m_Controller.GetSelection();
         if (TDint != null && TDint is ScavPartyInteraction)
         {
@@ -43,6 +55,6 @@ public class MapNodeInteraction : TopDownInteraction
             m_Controller.SetSelection(null);
             return;
         }
-        m_Controller.SetSelection(this);
+        //m_Controller.SetSelection(this);
     }
 }

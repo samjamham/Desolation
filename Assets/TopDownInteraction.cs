@@ -22,6 +22,10 @@ public class TopDownInteraction : MonoBehaviour, ITopDownViewInteractable
     public virtual void Interact()
     {
 
+    }    
+    public virtual void InteractAlt()
+    {
+
     }
 
     public virtual void GetSelected()

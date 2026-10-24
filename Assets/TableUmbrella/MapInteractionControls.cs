@@ -19,10 +19,19 @@ public class MapInteractionControls : MonoBehaviour
     public bool OnInteract(Vector2 MousePos)
     {
         interactableMouseOver = GetHover(MousePos);
-        if (interactableMouseOver ==  null)
+        if (interactableMouseOver is null)
             return true;
 
         interactableMouseOver.Interact();
+        return false;
+    }
+    public bool OnInteractAlt(Vector2 MousePos)
+    {
+        interactableMouseOver = GetHover(MousePos);
+        if (interactableMouseOver is null)
+            return true;
+
+        interactableMouseOver.InteractAlt();
         return false;
     }
     ITopDownViewInteractable GetHover(Vector2 MousePos)

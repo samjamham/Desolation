@@ -16,6 +16,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "MouseClickAlt",
+                    "type": "Button",
+                    "id": "4154f29f-6203-4f5b-84df-33fd8628cdd5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "MouseHold",
                     "type": "Button",
                     "id": "62f2881f-281f-44f2-92a8-5ff3bc49ab07",
@@ -83,6 +92,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "MouseClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab3613ef-4fde-4d9b-9acd-39ee4dcef33e",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseClickAlt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9fa86800-feed-4e32-a17e-2c42c856ee7f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseClickAlt",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -46,14 +46,14 @@ public class MapController : MonoBehaviour
         m_CurrentHover = Interactable;
         if (m_CurrentSelection == null)
             return;
-        Navi_NodeInteraction();
+        Navi_NodeHover();
     }
     public TopDownInteraction GetHovered()
     {
         return m_CurrentHover;
     }
 
-    void Navi_NodeInteraction()
+    void Navi_NodeHover()
     {
         if (m_CurrentHover == null && m_CurrentSelection is ScavPartyInteraction)
         {

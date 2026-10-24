@@ -41,5 +41,6 @@ public class ScavPartyInteraction : TopDownInteraction
     public override void GetDeselected()
     {
         m_PartyUI?.HideScavPartyUI();
+        m_Navigator.ClearPotentalPath();
     }
 }

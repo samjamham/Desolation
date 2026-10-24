@@ -80,10 +80,16 @@ public class ScryMapDrag : MonoBehaviour
         {
             MouseHeld = false;
         }
-
+    }
+    void OnMouseClickAlt(InputValue value)
+    {
+        if (value.Get<float>() == 1)
+        {
+            MouseHeld = MapInteract.OnInteractAlt(MouseLastFrame);
+        }
     }
 
-    private void OnPointerPos(InputValue value)
+        private void OnPointerPos(InputValue value)
     {
         MouseMovement = value.Get<Vector2>() - MouseLastFrame;
         MouseMovement.x *= (2.75f / Screen.width);
