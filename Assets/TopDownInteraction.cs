@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class TopDownInteraction : MonoBehaviour, ITopDownViewInteractable
@@ -28,11 +27,11 @@ public class TopDownInteraction : MonoBehaviour, ITopDownViewInteractable
 
     }
 
-    public virtual void GetSelected()
+    public virtual void OnSelected()
     {
 
     }
-    public virtual void GetDeselected()
+    public virtual void OnDeselected()
     {
     }
 }

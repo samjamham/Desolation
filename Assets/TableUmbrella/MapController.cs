@@ -31,8 +31,8 @@ public class MapController : MonoBehaviour
     {
         if (m_playmode == PlayerManager.Playmode.FirstPerson)
             return;
-        m_CurrentSelection?.GetDeselected();
-        Interactable?.GetSelected();
+        m_CurrentSelection?.OnDeselected();
+        Interactable?.OnSelected();
         m_CurrentSelection = Interactable;
     }
     public TopDownInteraction GetSelection()

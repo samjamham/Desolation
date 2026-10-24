@@ -34,11 +34,11 @@ public class ScavPartyInteraction : TopDownInteraction
         m_ToolTipTriggerMap.HoverTriggerExit();
     }
 
-    public override void GetSelected()
+    public override void OnSelected()
     {
         m_PartyUI?.DisplayScavPartyUI(GetComponent<ScavParty>().GetScavParty(), gameObject.GetComponent<ScavParty>().GetNightTravel());
     }
-    public override void GetDeselected()
+    public override void OnDeselected()
     {
         m_PartyUI?.HideScavPartyUI();
         m_Navigator.ClearPotentalPath();

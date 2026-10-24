@@ -9,6 +9,7 @@ TagManager:
   - ClipCube
   - ScavPartyUI
   - CycleManager
+  - ScavLocationUI
   layers:
   - Default
   - TransparentFX
