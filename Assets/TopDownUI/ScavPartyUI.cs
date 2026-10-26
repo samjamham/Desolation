@@ -1,9 +1,10 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScavPartyUI : TopDownUI
 {   [SerializeField] private GameObject m_Layout;
-    [SerializeField] private GameObject m_Prefab;
+    [SerializeField] private GameObject m_LayoutElementPrefab;
     [SerializeField] private Toggle m_Toggle;
     // Update is called once per frame
     void Update()
@@ -15,24 +16,28 @@ public class ScavPartyUI : TopDownUI
     {
         DisplayUI();
         m_Toggle.SetIsOnWithoutNotify(NightTravel);       
-        for (int i = m_Layout.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(m_Layout.transform.GetChild(i).gameObject);
-        }
-        for (int i = 0; i <= 3; i++)
+        ClearDisplay(); //clear incase there are any children that shouldn't be there 
+        for (int i = 0; i < ScavParty.dwellers.Count(); i++)
         {
             CreatePartyMemberDispaly(ScavParty.dwellers[i]);
         }
-
     }
     public void HideScavPartyUI()
     {
+        ClearDisplay();
         HideUI();
     }
     private void CreatePartyMemberDispaly(Dweller Dweller)
     {
-        GameObject prefab = GameObject.Instantiate(m_Prefab, m_Layout.transform);
+        GameObject prefab = GameObject.Instantiate(m_LayoutElementPrefab, m_Layout.transform); //Create a layout element as a child of the layout group. The group will automatically resize to fit
         prefab.GetComponent<UnityEngine.UI.Image>().sprite = Dweller.m_Sprite;
+    }
+    private void ClearDisplay()
+    {
+        for (int i = m_Layout.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(m_Layout.transform.GetChild(i).gameObject);
+        }
     }
     
     public void SetNightTravel()

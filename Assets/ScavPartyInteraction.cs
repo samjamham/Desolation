@@ -3,7 +3,6 @@ using UnityEngine;
 public class ScavPartyInteraction : TopDownInteraction
 {
     [SerializeField] ToolTipTriggerMap m_ToolTipTriggerMap;
-    [SerializeField] int[] m_ImageIDs;
     private ScavPartyUI m_PartyUI;
     private AStarNavigator m_Navigator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -5,9 +5,9 @@ using UnityEngine.Rendering;
 
 public class ScavParty : MonoBehaviour
 {
-    [SerializeField] private Structs.ScavParty m_ScavParty;
-    [SerializeField] private AStarNavigator m_Navi;
     private bool m_WilActivateAtNight;
+    [SerializeField] private AStarNavigator m_Navi;
+    [SerializeField] private Structs.ScavParty m_ScavParty;
     [SerializeField] private List<Item> m_ScavengedItems;
 
     private void Start()
