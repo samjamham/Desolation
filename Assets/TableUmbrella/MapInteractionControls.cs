@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class MapInteractionControls : MonoBehaviour
 {
-    private ITopDownViewInteractable interactableMouseOver = null;
+    private ITopDownViewInteractable m_InteractableMouseOver = null;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,21 +18,20 @@ public class MapInteractionControls : MonoBehaviour
     }
     public bool OnInteract(Vector2 MousePos)
     {
-        interactableMouseOver = GetHover(MousePos);
-        if (interactableMouseOver is null)
+        m_InteractableMouseOver = GetHover(MousePos);
+        if (m_InteractableMouseOver is null)
             return true;
 
-        interactableMouseOver.Interact();
+        m_InteractableMouseOver.Interact();
         return false;
     }
-    public bool OnInteractAlt(Vector2 MousePos)
+    public void OnInteractAlt(Vector2 MousePos)
     {
-        interactableMouseOver = GetHover(MousePos);
-        if (interactableMouseOver is null)
-            return true;
+        m_InteractableMouseOver = GetHover(MousePos);
+        if (m_InteractableMouseOver is null)
+            return;
 
-        interactableMouseOver.InteractAlt();
-        return false;
+        m_InteractableMouseOver.InteractAlt();
     }
     ITopDownViewInteractable GetHover(Vector2 MousePos)
     {

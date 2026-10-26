@@ -1,9 +1,7 @@
+using JetBrains.Annotations;
 using Unity.Cinemachine;
-using Unity.Collections.LowLevel.Unsafe;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.PlayerSettings;
 
 public class ScryMapDrag : MonoBehaviour
 {
@@ -26,6 +24,8 @@ public class ScryMapDrag : MonoBehaviour
     [SerializeField] CameraManager CameraManager;
     [SerializeField] CinemachineCamera PlayerCamera;
 
+    public bool m_InputBlocker { get; private set; }
+
 
     private void Start()
     {
@@ -34,7 +34,8 @@ public class ScryMapDrag : MonoBehaviour
         ZoomPivot = ScryMap.transform.GetChild(0).gameObject;
 
         ZoomLevel = ScryMap.transform.localScale.x;
-
+        
+        m_InputBlocker = false; 
     }
 
     private void Update()
@@ -44,6 +45,11 @@ public class ScryMapDrag : MonoBehaviour
             ZoomPivot.transform.position = new Vector3(ZoomPivot.transform.position.x + MouseMovement.x, ZoomPivot.transform.position.y, ZoomPivot.transform.position.z + MouseMovement.y);
         }
         MouseMovement = Vector2.zero;
+    }
+
+    public void SetBlocker(bool value)
+    {
+        m_InputBlocker = value;
     }
 
     public void SetViewAngle(float value)
@@ -68,12 +74,20 @@ public class ScryMapDrag : MonoBehaviour
 
     void OnMouseHold(InputValue value)
     {
+        if (m_InputBlocker)
+        {
+            return;
+        }
         MouseHeld = true;
     }
     void OnMouseClick(InputValue value)
-    {
-        if(value.Get<float>() == 1)
+    {        
+        if (value.Get<float>() == 1) //1 is mouse down. 0 is mouse up.
         {
+            if (m_InputBlocker)
+            {
+                return;
+            }
             MouseHeld = MapInteract.OnInteract(MouseLastFrame);
         }
         else
@@ -83,13 +97,17 @@ public class ScryMapDrag : MonoBehaviour
     }
     void OnMouseClickAlt(InputValue value)
     {
+        if (m_InputBlocker)
+        {
+            return;
+        }
         if (value.Get<float>() == 1)
         {
-            MouseHeld = MapInteract.OnInteractAlt(MouseLastFrame);
+            MapInteract.OnInteractAlt(MouseLastFrame);
         }
     }
 
-        private void OnPointerPos(InputValue value)
+    private void OnPointerPos(InputValue value)
     {
         MouseMovement = value.Get<Vector2>() - MouseLastFrame;
         MouseMovement.x *= (2.75f / Screen.width);
@@ -98,7 +116,7 @@ public class ScryMapDrag : MonoBehaviour
         Vector3 CamaeraRotation = Quaternion.AngleAxis(Rotation, Vector3.up) * new Vector3(MouseMovement.x, 0f, MouseMovement.y);
         MouseMovement = new Vector2(CamaeraRotation.x, CamaeraRotation.z);
         Vector3 v3 = value.Get<Vector2>();
-        v3.z = Vector3.Distance(Camera.main.transform.position, new Vector3(0f, 0.5f, 0f)); //distance between table and camera
+        v3.z = Vector3.Distance(Camera.main.transform.position, new Vector3(0f, 0.7f, 0f)); //distance between table and camera
         MousePosition = Camera.main.ScreenToWorldPoint(v3);
         MousePosition.y = 0f;
 
@@ -107,6 +125,10 @@ public class ScryMapDrag : MonoBehaviour
 
     private void OnScrollWheel(InputValue value)
     {
+        if (m_InputBlocker)
+        {
+            return;
+        }
         float ScaleAmount = 1f;
         ScaleAmount += value.Get<Vector2>().y * 0.1f;
 
