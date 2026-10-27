@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,6 +8,7 @@ public class ScryMapDrag : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject ScryMap;
+    [SerializeField] private StorageManager m_StorageManager;
     private MapInteractionControls MapInteract; //Component of ScryMap
     private GameObject ZoomPivot; //Child of ScryMap
 
@@ -62,7 +64,11 @@ public class ScryMapDrag : MonoBehaviour
     }
     public void ReturnHome()
     {
-        ScryMap.GetComponent<MapController>().ReturnHome();
+        ScryMap.GetComponent<MapController>().ReturnHome(this);
+    }
+    public void Additems(List<Item> items)
+    {
+        m_StorageManager.AddItems(items);
     }
     void OnReturnToPlayer(InputValue value)
     {  

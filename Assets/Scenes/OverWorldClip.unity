@@ -2041,7 +2041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AStarMoveDebug
   nav: {fileID: 560252665}
-  TestStart: {fileID: 1927319884}
+  TestStart: {fileID: 1894647511}
   TestEnd: {fileID: 1894647511}
   Move:
     m_Name: Move
@@ -6168,6 +6168,26 @@ PrefabInstance:
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_ScavengedItems.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: 'm_ScavengedItems.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a99a22024e2efd14695c068ec296ece3, type: 2}
+    - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: 'm_ScavengedItems.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ac39441a8efdb4b478a92691eaaab68d, type: 2}
+    - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: 'm_ScavengedItems.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bebc97860dced9429346452c2c6c13a, type: 2}
+    - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: 'm_ScavengedItems.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9918d73c4f680dc448ac1aadb300e297, type: 2}
+    - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_ScavParty.dwellers.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -6209,7 +6229,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 62abd4c0fe5efb349a0ea5b033290cbc, type: 2}
     - target: {fileID: 7672779846227072775, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 7672779846227072775, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6217,7 +6237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7672779846227072775, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.2156
       objectReference: {fileID: 0}
     - target: {fileID: 7672779846227072775, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_LocalRotation.w

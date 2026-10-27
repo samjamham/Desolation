@@ -66,13 +66,14 @@ public class MapController : MonoBehaviour
         }
         m_CurrentSelection.gameObject.GetComponent<ScavParty>().SetNightTravel(value);
     }
-    public void ReturnHome()
+    public void ReturnHome(ScryMapDrag SMD)
     {
         if (m_CurrentSelection is not ScavPartyInteraction)
         {
             return;
         }
         GameObject ToDelete = m_CurrentSelection.gameObject;
+        SMD.Additems(m_CurrentSelection.GetComponent<ScavParty>().GetScavItems());
         SetSelection(null);
         SetHovered(null);
         Destroy(ToDelete);
