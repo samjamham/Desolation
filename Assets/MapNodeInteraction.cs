@@ -2,22 +2,15 @@ using UnityEngine;
 
 public class MapNodeInteraction : TopDownInteraction
 {
-    [SerializeField] ToolTipTriggerMap m_ToolTipTriggerMap;
-    private AStarNode m_MyNode;
-    private ScavLocationUI m_LocationUI;
+    [SerializeField] private ToolTipTriggerMap m_ToolTipTriggerMap;
+    protected AStarNode m_MyNode;
+    protected ScavLocationUI m_LocationUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         m_MyNode = GetComponent<AStarNode>();
         m_LocationUI = GameObject.FindGameObjectWithTag("ScavLocationUI").GetComponent<ScavLocationUI>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public AStarNode GetNode()
     { 
         return m_MyNode; 

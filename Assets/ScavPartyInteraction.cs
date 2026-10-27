@@ -36,11 +36,17 @@ public class ScavPartyInteraction : TopDownInteraction
     public override void OnSelected()
     {
         ScavParty SP = GetComponent<ScavParty>();
-        m_PartyUI?.DisplayScavPartyUI(SP.GetScavParty(), gameObject.GetComponent<ScavParty>().GetNightTravel(), SP.GetScavItems());
+        bool atHome = GetComponent<AStarNavigator>().GetCurrentNode() == SP.m_homeNode ? true : false;
+        m_PartyUI?.DisplayScavPartyUI(SP.GetScavParty(), SP.GetNightTravel(), SP.GetScavItems(), atHome);
     }
     public override void OnDeselected()
     {
         m_PartyUI?.HideScavPartyUI();
         m_Navigator.ClearPotentalPath();
+    }
+    
+    public void ReturnHome()
+    {
+
     }
 }

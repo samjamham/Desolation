@@ -9,6 +9,7 @@ public class ScavParty : MonoBehaviour
     [SerializeField] private AStarNavigator m_Navi;
     [SerializeField] private Structs.ScavParty m_ScavParty;
     [SerializeField] private List<Item> m_ScavengedItems;
+    public AStarNode m_homeNode;
 
     private void Start()
     {

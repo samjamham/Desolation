@@ -9,17 +9,22 @@ public class ScavPartyUI : TopDownUI
     [SerializeField] private GameObject m_DwellerLayoutElementPrefab;    
     [SerializeField] private GameObject m_ItemLayout;
     [SerializeField] private GameObject m_ItemLayoutElementPrefab;
-    [SerializeField] private Toggle m_Toggle;
+    [SerializeField] private Toggle m_NightToggle;
+    [SerializeField] private Button m_ReturnButton;
     // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void DisplayScavPartyUI(Structs.ScavParty ScavParty, bool NightTravel, List<Item> items)
+    public void DisplayScavPartyUI(Structs.ScavParty ScavParty, bool NightTravel, List<Item> items, bool AtHome)
     {
         DisplayUI();
-        m_Toggle.SetIsOnWithoutNotify(NightTravel);       
+        m_NightToggle.SetIsOnWithoutNotify(NightTravel);
+        if (AtHome)
+            m_ReturnButton.interactable = true;
+        else
+            m_ReturnButton.interactable = false;
         ClearDisplay(); //clear incase there are any children that shouldn't be there 
         for (int i = 0; i < ScavParty.dwellers.Count(); i++)
         {
@@ -61,7 +66,7 @@ public class ScavPartyUI : TopDownUI
     
     public void SetNightTravel()
     {
-        bool value = m_Toggle.isOn;
+        bool value = m_NightToggle.isOn;
         m_MapController?.SetNightTravel(value);
     }    
 }

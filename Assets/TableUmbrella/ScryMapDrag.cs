@@ -60,6 +60,10 @@ public class ScryMapDrag : MonoBehaviour
     {
         ScryMap.GetComponent<MapController>().EnterTopDown();
     }
+    public void ReturnHome()
+    {
+        ScryMap.GetComponent<MapController>().ReturnHome();
+    }
     void OnReturnToPlayer(InputValue value)
     {  
         this.GetComponent<PlayerInput>().enabled = false;

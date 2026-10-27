@@ -5,14 +5,7 @@ public class MapController : MonoBehaviour
     [SerializeField] private TopDownInteraction m_CurrentSelection;
     [SerializeField] private TopDownInteraction m_CurrentHover;
     private PlayerManager.Playmode m_playmode;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
@@ -72,5 +65,16 @@ public class MapController : MonoBehaviour
             return;
         }
         m_CurrentSelection.gameObject.GetComponent<ScavParty>().SetNightTravel(value);
-    }    
+    }
+    public void ReturnHome()
+    {
+        if (m_CurrentSelection is not ScavPartyInteraction)
+        {
+            return;
+        }
+        GameObject ToDelete = m_CurrentSelection.gameObject;
+        SetSelection(null);
+        SetHovered(null);
+        Destroy(ToDelete);
+    }
 }
