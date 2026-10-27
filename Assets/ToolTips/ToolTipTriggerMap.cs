@@ -16,7 +16,6 @@ public class ToolTipTriggerMap : ToolTipTrigger
     }
     public void HoverTriggerExit()
     {
-        delay = false;
         HideToolTip();
     }
 }

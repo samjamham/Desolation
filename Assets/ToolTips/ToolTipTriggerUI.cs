@@ -1,17 +1,14 @@
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ToolTipTriggerUI : ToolTipTrigger
+public class ToolTipTriggerUI : ToolTipTrigger, IPointerEnterHandler, IPointerExitHandler
 {
-    public override void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)
     {
         DisplayToolTip();
     }
-    public override void OnPointerExit(PointerEventData eventData)
+
+    public void OnPointerExit(PointerEventData eventData)
     {
-        delay = false;
         HideToolTip();
     }
 }

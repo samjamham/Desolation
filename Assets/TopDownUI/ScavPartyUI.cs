@@ -1,10 +1,14 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScavPartyUI : TopDownUI
-{   [SerializeField] private GameObject m_Layout;
-    [SerializeField] private GameObject m_LayoutElementPrefab;
+{   
+    [SerializeField] private GameObject m_DwellerLayout;
+    [SerializeField] private GameObject m_DwellerLayoutElementPrefab;    
+    [SerializeField] private GameObject m_ItemLayout;
+    [SerializeField] private GameObject m_ItemLayoutElementPrefab;
     [SerializeField] private Toggle m_Toggle;
     // Update is called once per frame
     void Update()
@@ -12,7 +16,7 @@ public class ScavPartyUI : TopDownUI
         
     }
 
-    public void DisplayScavPartyUI(Structs.ScavParty ScavParty, bool NightTravel)
+    public void DisplayScavPartyUI(Structs.ScavParty ScavParty, bool NightTravel, List<Item> items)
     {
         DisplayUI();
         m_Toggle.SetIsOnWithoutNotify(NightTravel);       
@@ -20,6 +24,10 @@ public class ScavPartyUI : TopDownUI
         for (int i = 0; i < ScavParty.dwellers.Count(); i++)
         {
             CreatePartyMemberDispaly(ScavParty.dwellers[i]);
+        }
+        for (int i = 0; i < items.Count(); i++)
+        {
+            CreateItemDispaly(items[i]);
         }
     }
     public void HideScavPartyUI()
@@ -29,14 +37,25 @@ public class ScavPartyUI : TopDownUI
     }
     private void CreatePartyMemberDispaly(Dweller Dweller)
     {
-        GameObject prefab = GameObject.Instantiate(m_LayoutElementPrefab, m_Layout.transform); //Create a layout element as a child of the layout group. The group will automatically resize to fit
+        GameObject prefab = GameObject.Instantiate(m_DwellerLayoutElementPrefab, m_DwellerLayout.transform); //Create a layout element as a child of the layout group. The group will automatically resize to fit
         prefab.GetComponent<UnityEngine.UI.Image>().sprite = Dweller.m_Sprite;
+        prefab.GetComponent<ToolTipTriggerUI>().SetHeader(Dweller.name);
+        prefab.GetComponent<ToolTipTriggerUI>().SetBody("");
+    }
+    private void CreateItemDispaly(Item item)
+    {
+        GameObject prefab = GameObject.Instantiate(m_ItemLayoutElementPrefab, m_ItemLayout.transform); //Create a layout element as a child of the layout group. The group will automatically resize to fit
+        prefab.GetComponent<LayoutElementItem>().ChangeIcon(item.m_Sprite);
     }
     private void ClearDisplay()
     {
-        for (int i = m_Layout.transform.childCount - 1; i >= 0; i--)
+        for (int i = m_DwellerLayout.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(m_Layout.transform.GetChild(i).gameObject);
+            Destroy(m_DwellerLayout.transform.GetChild(i).gameObject);
+        }
+        for (int i = m_ItemLayout.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(m_ItemLayout.transform.GetChild(i).gameObject);
         }
     }
     

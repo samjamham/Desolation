@@ -35,7 +35,8 @@ public class ScavPartyInteraction : TopDownInteraction
 
     public override void OnSelected()
     {
-        m_PartyUI?.DisplayScavPartyUI(GetComponent<ScavParty>().GetScavParty(), gameObject.GetComponent<ScavParty>().GetNightTravel());
+        ScavParty SP = GetComponent<ScavParty>();
+        m_PartyUI?.DisplayScavPartyUI(SP.GetScavParty(), gameObject.GetComponent<ScavParty>().GetNightTravel(), SP.GetScavItems());
     }
     public override void OnDeselected()
     {

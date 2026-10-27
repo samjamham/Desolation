@@ -353,6 +353,14 @@ PrefabInstance:
       propertyPath: header
       value: Scav Party B
       objectReference: {fileID: 0}
+    - target: {fileID: 5258794019352233851, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_Header
+      value: Scav Party B
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258794019352233851, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_ScavParty.remainingFood
       value: 70
@@ -611,6 +619,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 206991169}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: Scout here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: Neighbours.Array.size
       value: 2
@@ -983,6 +1003,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 206991169}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: Scout here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: Parent
       value: 
@@ -1341,6 +1373,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 206991169}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: Scout here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: Neighbours.Array.size
       value: 2
@@ -1657,6 +1701,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 206991169}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: Scout here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: Neighbours.Array.size
       value: 1
@@ -2325,6 +2381,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 206991169}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: Scout here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: Neighbours.Array.size
       value: 2
@@ -2969,7 +3037,19 @@ PrefabInstance:
       value: Node2
       objectReference: {fileID: 0}
     - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: Scout here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: DisplayDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
@@ -3382,6 +3462,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 206991169}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: Scout here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: Neighbours.Array.size
       value: 2
@@ -3612,6 +3704,18 @@ PrefabInstance:
     - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: header
       value: Node 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: Scout here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: Neighbours.Array.size
@@ -4659,6 +4763,14 @@ PrefabInstance:
       propertyPath: header
       value: Scav Party C
       objectReference: {fileID: 0}
+    - target: {fileID: 5258794019352233851, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_Header
+      value: Scav Party C
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258794019352233851, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_ScavParty.remainingFood
       value: 70
@@ -4844,7 +4956,19 @@ PrefabInstance:
       value: Node 1
       objectReference: {fileID: 0}
     - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: A safe place
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Home Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: DisplayDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
@@ -5253,9 +5377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46fbc3fd23733ff42ab89ada21f2db73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
-  header: Home
-  body: This is where you live.
-  DisplayDelay: 0.1
+  m_Header: 
+  m_Body: 
+  m_DisplayDelay: 0
 --- !u!1 &1999816836
 GameObject:
   m_ObjectHideFlags: 0
@@ -5359,6 +5483,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 206991169}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: Scout here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: Neighbours.Array.size
       value: 2
@@ -5558,6 +5694,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 206991169}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Body
+      value: Scout here!
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Header
+      value: Node
+      objectReference: {fileID: 0}
+    - target: {fileID: 832504720510251462, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1919655833569125056, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: Neighbours.Array.size
       value: 2
@@ -5702,6 +5850,14 @@ PrefabInstance:
     - target: {fileID: 5258794019352233851, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: header
       value: Scav Party A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258794019352233851, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_Header
+      value: Scav Party A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258794019352233851, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_DisplayDelay
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_ScavParty.remainingFood

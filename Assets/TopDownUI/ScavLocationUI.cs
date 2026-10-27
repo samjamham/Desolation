@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ScavLocationUI : TopDownUI
 {
-   [SerializeField] private GameObject m_Layout;
+    [SerializeField] private GameObject m_Layout;
     [SerializeField] private GameObject m_LayoutElementPrefab;
     // Update is called once per frame
     void Update()
@@ -17,7 +17,7 @@ public class ScavLocationUI : TopDownUI
         ClearDisplay();
         for (int i = 0; i < items.Count(); i++)
         {
-            CreatePartyMemberDispaly(items[i]);
+            CreateItemDispaly(items[i]);
         }
     }    
     public void HideScavLocationUI()
@@ -26,7 +26,7 @@ public class ScavLocationUI : TopDownUI
         HideUI();
     }
 
-    private void CreatePartyMemberDispaly(Item item)
+    private void CreateItemDispaly(Item item)
     {
         GameObject prefab = GameObject.Instantiate(m_LayoutElementPrefab, m_Layout.transform); //Create a layout element as a child of the layout group. The group will automatically resize to fit
         prefab.GetComponent<LayoutElementItem>().ChangeIcon(item.m_Sprite);

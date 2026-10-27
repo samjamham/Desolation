@@ -19,6 +19,10 @@ public class ScavParty : MonoBehaviour
     { 
         return m_ScavParty; 
     }
+    public List<Item> GetScavItems()
+    {
+        return m_ScavengedItems;
+    }
     public void OnCycleChange(bool IsNight)
     {
         if (IsNight && !m_WilActivateAtNight)
