@@ -12,4 +12,10 @@ public class Structs
         //TODO ADD:
         //inventory 
     }
+    [Serializable]
+    public struct ItemStack
+    {
+        public Item item;
+        public int stackSize;
+    }
 }

@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 2893024656833868373}
   - component: {fileID: 6011618182817404337}
   - component: {fileID: -7077010993138397773}
+  - component: {fileID: -8622362167723492264}
   m_Layer: 0
   m_Name: LayoutElementItem
   m_TagString: Untagged
@@ -186,3 +187,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   m_Image: {fileID: 1799334564495503790}
+--- !u!114 &-8622362167723492264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5209856520598899130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e9756db65ab6142989a84f4eb8b6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerUI
+  m_Header: 
+  m_Body: 
+  m_DisplayDelay: 0

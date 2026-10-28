@@ -2,30 +2,33 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Structs;
 
 public class StorageManager : MonoBehaviour
 {
-    public List<Item> m_Items { get; private set; }
+    public Dictionary<Item,int> m_Items { get; private set; }
 
     private void Start()
     {
-        m_Items = new List<Item>();
+        m_Items = new Dictionary<Item, int>();
     }
     public void AddItems(List<Item> items)
     {
-        m_Items.AddRange(items);
+        foreach(Item item in items)
+        {
+            if (m_Items.ContainsKey(item))
+            {
+                m_Items[item]++;
+            }
+            else
+            {
+                m_Items.Add(item, 1);
+            }
+        }
     }
     private bool RemoveItem(Item item)
     {
-       if (!m_Items.Contains(item))
-       {
-            return false;
-       }
-       else
-       {
-            m_Items.Remove(item);
-            return true;
-       }
+        return false;
     }
 
 }
