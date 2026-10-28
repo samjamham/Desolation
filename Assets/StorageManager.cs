@@ -6,11 +6,11 @@ using static Structs;
 
 public class StorageManager : MonoBehaviour
 {
-    public Dictionary<Item,int> m_Items { get; private set; }
+    public SortedDictionary<Item,int> m_Items { get; private set; }
 
     private void Start()
     {
-        m_Items = new Dictionary<Item, int>();
+        m_Items = new SortedDictionary<Item, int>();
     }
     public void AddItems(List<Item> items)
     {
@@ -27,8 +27,7 @@ public class StorageManager : MonoBehaviour
         }
     }
     private bool RemoveItem(Item item)
-    {
+    { 
         return false;
     }
-
 }
