@@ -75,12 +75,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8938627fa37fc449864ed94f6b37b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScavParty
+  m_Navi: {fileID: 1417585499865638124}
   m_ScavParty:
     dwellers: []
     remainingFood: 0
     remainingWater: 0
-  m_Navi: {fileID: 1417585499865638124}
   m_ScavengedItems: []
+  m_homeNode: {fileID: 0}
 --- !u!114 &1029190362234015092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,10 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b7b5211bf4d5947a90ca3c877fa677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  canInteract: 0
+  canInteract: 1
   m_Controller: {fileID: 0}
   m_ToolTipTriggerMap: {fileID: 5258794019352233851}
-  m_ImageIDs: 00000000000000000000000000000000
 --- !u!114 &5258794019352233851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46fbc3fd23733ff42ab89ada21f2db73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
-  header: 
-  body: 
-  DisplayDelay: 0.3
+  m_Header: 
+  m_Body: 
+  m_DisplayDelay: 0
 --- !u!114 &1417585499865638124
 MonoBehaviour:
   m_ObjectHideFlags: 0

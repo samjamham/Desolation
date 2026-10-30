@@ -34,4 +34,8 @@ public class TopDownInteraction : MonoBehaviour, ITopDownViewInteractable
     public virtual void OnDeselected()
     {
     }
+    protected void FindController()
+    {
+        m_Controller = GameObject.FindGameObjectWithTag("ScryMap").GetComponent<MapController>();
+    }
 }

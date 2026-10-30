@@ -33,9 +33,11 @@ public class ScavParty : MonoBehaviour
         }
         if(m_Navi.IsAtEndOfPath())
         {
-            //Scavenge the local area
-            m_ScavengedItems.AddRange(m_Navi.GetCurrentNode().gameObject.GetComponent<ScavLocation>().SearchScavLocation(m_ScavParty));
-            //m_ScavengedItems.Sort(); Need to implement IComparable
+            if (m_Navi.GetCurrentNode().gameObject.TryGetComponent(out ScavLocation SL))
+            {
+                //Scavenge the local area
+                m_ScavengedItems.AddRange(m_Navi.GetCurrentNode().gameObject.GetComponent<ScavLocation>().SearchScavLocation(m_ScavParty));
+            }
             return;
         }
         m_Navi.MoveToNextNode();

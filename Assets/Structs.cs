@@ -9,8 +9,6 @@ public class Structs
         public Dweller[] dwellers;
         public int remainingFood;
         public int remainingWater;
-        //TODO ADD:
-        //inventory 
     }
     [Serializable]
     public struct ItemStack

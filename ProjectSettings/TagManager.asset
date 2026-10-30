@@ -10,6 +10,8 @@ TagManager:
   - ScavPartyUI
   - CycleManager
   - ScavLocationUI
+  - HomeNodeUI
+  - Nodes
   layers:
   - Default
   - TransparentFX

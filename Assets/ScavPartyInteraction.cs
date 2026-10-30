@@ -10,6 +10,7 @@ public class ScavPartyInteraction : TopDownInteraction
     {
         m_PartyUI = GameObject.FindGameObjectWithTag("ScavPartyUI").GetComponent<ScavPartyUI>();
         m_Navigator = gameObject.GetComponent<AStarNavigator>();
+        FindController();
     }
 
     // Update is called once per frame

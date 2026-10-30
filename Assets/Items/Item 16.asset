@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7c8acdba34fb549ad3b163f5626898, type: 3}
   m_Name: Item 16
   m_EditorClassIdentifier: Assembly-CSharp::Item
+  ID: 16
   m_Sprite: {fileID: -417706670, guid: ac5eee10ad7bf2145a81661976a81730, type: 3}
   m_Weight: 0

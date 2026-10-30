@@ -9,6 +9,7 @@ public class AStarMap : MonoBehaviour
 
     private void Awake()
     {
+        Nodes = GameObject.FindGameObjectWithTag("Nodes");
         NodesArr = new List<AStarNode>();
         RefreshList();
         //Debug.Log($"I have {NodesArr.Count} Nodes in my list");

@@ -4,6 +4,8 @@ public class MapController : MonoBehaviour
 {
     [SerializeField] private TopDownInteraction m_CurrentSelection;
     [SerializeField] private TopDownInteraction m_CurrentHover;
+    [SerializeField] private GameObject ScavPartyPrefab;
+    [SerializeField] private AStarNode HomeNode;
     private PlayerManager.Playmode m_playmode;
     void Start()
     {
@@ -77,5 +79,13 @@ public class MapController : MonoBehaviour
         SetSelection(null);
         SetHovered(null);
         Destroy(ToDelete);
+    }
+    public void CreateScavParty(Structs.ScavParty SP)
+    {
+        GameObject prefab = Instantiate(ScavPartyPrefab, transform.GetChild(0));
+        prefab.transform.position = HomeNode.transform.position;
+        prefab.GetComponent<AStarNavigator>().FindStartPath(HomeNode, HomeNode);
+        prefab.GetComponent<ToolTipTriggerMap>().SetHeader("Scav Party");
+        prefab.GetComponent<ToolTipTriggerMap>().SetBody("DEBUG: ADD THEIR NAMES");
     }
 }

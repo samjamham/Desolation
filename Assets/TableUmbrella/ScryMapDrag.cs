@@ -70,6 +70,10 @@ public class ScryMapDrag : MonoBehaviour
     {
         m_StorageManager.AddItems(items);
     }
+    public void CreateScavParty(Structs.ScavParty SP)
+    {
+        ScryMap.GetComponent<MapController>().CreateScavParty(SP);
+    }
     void OnReturnToPlayer(InputValue value)
     {  
         this.GetComponent<PlayerInput>().enabled = false;
