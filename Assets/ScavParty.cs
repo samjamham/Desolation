@@ -16,9 +16,17 @@ public class ScavParty : MonoBehaviour
         GameObject.FindGameObjectWithTag("CycleManager").GetComponent<CycleManager>().m_CyclProgess.AddListener(OnCycleChange);
         m_WilActivateAtNight = false;
     }
+    private void OnDestroy()
+    {
+        GameObject.FindGameObjectWithTag("CycleManager").GetComponent<CycleManager>().m_CyclProgess.RemoveListener(OnCycleChange);
+    }
     public Structs.ScavParty GetScavParty() 
     { 
         return m_ScavParty; 
+    }
+    public void SetScavParty(Structs.ScavParty SP) 
+    {
+        m_ScavParty = SP; 
     }
     public List<Item> GetScavItems()
     {

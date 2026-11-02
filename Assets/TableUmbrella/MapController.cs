@@ -85,6 +85,8 @@ public class MapController : MonoBehaviour
         GameObject prefab = Instantiate(ScavPartyPrefab, transform.GetChild(0));
         prefab.transform.position = HomeNode.transform.position;
         prefab.GetComponent<AStarNavigator>().FindStartPath(HomeNode, HomeNode);
+        prefab.GetComponent<ScavParty>().SetScavParty(SP);
+        prefab.GetComponent<ScavParty>().m_homeNode = HomeNode;
         prefab.GetComponent<ToolTipTriggerMap>().SetHeader("Scav Party");
         prefab.GetComponent<ToolTipTriggerMap>().SetBody("DEBUG: ADD THEIR NAMES");
     }
