@@ -8,12 +8,16 @@ using UnityEngine.UI;
 public class ScavPartyCreator : MonoBehaviour
 {
     [SerializeField] private ScryMapDrag m_ScryMap;
-    [SerializeField] private HomeNodeUI m_HomeNodeUI;
-    [SerializeField] private Dweller[] m_DwellerSelection;
+    [SerializeField] private HomeNodeUI m_HomeNodeUI;   
     [SerializeField] private GameObject m_DwellerSelectionMenu;
     [SerializeField] private GameObject m_DwellerLayoutPrefab;
     [SerializeField] ToggleGroup m_ToggleGroup;
     [SerializeField] private Sprite m_DefualtSpirte;
+
+    [Header("ScavPartyViewerForDebug")]
+    [SerializeField] private Dweller[] m_DwellerSelection;
+    [SerializeField] private Slider m_FoodSlider;
+    [SerializeField] private Slider m_WaterSlider;
     private int m_ToggleSelection; 
 
     private void Awake()
@@ -100,6 +104,9 @@ public class ScavPartyCreator : MonoBehaviour
         if (NonNull.Count() == 0)
             return;
         SP.dwellers = NonNull.ToArray();
+        SP.remainingFood = (int)m_FoodSlider.value;
+        SP.remainingWater = (int)m_WaterSlider.value;
+
         m_ScryMap.CreateScavParty(SP);
         m_HomeNodeUI.DeseletInteractable();
     }

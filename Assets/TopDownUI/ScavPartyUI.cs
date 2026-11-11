@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +12,8 @@ public class ScavPartyUI : TopDownUI
     [SerializeField] private GameObject m_ItemLayout;
     [SerializeField] private GameObject m_ItemLayoutElementPrefab;
     [SerializeField] private Toggle m_NightToggle;
+    [SerializeField] private TextMeshProUGUI m_FoodText;
+    [SerializeField] private TextMeshProUGUI m_WaterText;
     [SerializeField] private Button m_ReturnButton;
     // Update is called once per frame
     void Update()
@@ -34,6 +38,8 @@ public class ScavPartyUI : TopDownUI
         {
             CreateItemDispaly(items[i]);
         }
+        m_FoodText.text = ScavParty.remainingFood.ToString() + "/100"; //Not hard set values
+        m_WaterText.text = ScavParty.remainingWater.ToString() + "/100";       
     }
     public void HideScavPartyUI()
     {
