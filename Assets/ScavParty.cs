@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
@@ -32,8 +33,19 @@ public class ScavParty : MonoBehaviour
     {
         return m_ScavengedItems;
     }
+    public void SetNightTravel(bool Value)
+    {
+        m_WilActivateAtNight = Value;
+    }
+    public bool GetNightTravel()
+    {
+        return m_WilActivateAtNight;
+    }
     public void OnCycleChange(bool IsNight)
     {
+        IEnumerable<Dweller> NonNull = m_ScavParty.dwellers.Where(x => x != null);
+        ConsumeFood(NonNull.Count());
+        ConsumeWater(NonNull.Count());
         if (IsNight && !m_WilActivateAtNight)
         {
             //Go into CampMode
@@ -44,19 +56,31 @@ public class ScavParty : MonoBehaviour
             if (m_Navi.GetCurrentNode().gameObject.TryGetComponent(out ScavLocation SL))
             {
                 //Scavenge the local area
-                m_ScavengedItems.AddRange(m_Navi.GetCurrentNode().gameObject.GetComponent<ScavLocation>().SearchScavLocation(m_ScavParty));
+                m_ScavengedItems.AddRange(SL.SearchScavLocation(m_ScavParty));
             }
             return;
         }
         m_Navi.MoveToNextNode();
     }
+    public void ConsumeFood(int Amount)
+    {        
+        m_ScavParty.remainingFood -= Amount;
 
-    public void SetNightTravel(bool Value)
+        if (m_ScavParty.remainingFood < 0)
+        {
+            Debug.Log("Out of food");
+            m_ScavParty.remainingFood = 0;
+        }
+    } 
+    public void ConsumeWater(int Amount)
     {
-        m_WilActivateAtNight = Value;
+        m_ScavParty.remainingWater -= Amount;
+
+        if (m_ScavParty.remainingWater < 0)
+        {
+            Debug.Log("Out of water");
+            m_ScavParty.remainingWater = 0;
+        }
     }
-    public bool GetNightTravel()
-    {
-        return m_WilActivateAtNight;
-    }
+
 }
