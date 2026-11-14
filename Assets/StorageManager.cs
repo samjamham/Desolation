@@ -8,7 +8,7 @@ public class StorageManager : MonoBehaviour
 {
     public SortedDictionary<Item,int> m_Items { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         m_Items = new SortedDictionary<Item, int>();
     }
@@ -16,14 +16,26 @@ public class StorageManager : MonoBehaviour
     {
         foreach(Item item in items)
         {
-            if (m_Items.ContainsKey(item))
-            {
-                m_Items[item]++;
-            }
-            else
-            {
-                m_Items.Add(item, 1);
-            }
+            AddItem(item);
+        }
+    }
+    public void AddItem(Item item)
+    {
+        if (m_Items.ContainsKey(item))
+        {
+            m_Items[item]++;
+        }
+        else
+        {
+            m_Items.Add(item, 1);
+        }
+    }
+
+    public void RemoveItems(List<Item> items)
+    {
+        foreach (Item item in items)
+        {
+            RemoveItem(item);
         }
     }
     private bool RemoveItem(Item item)

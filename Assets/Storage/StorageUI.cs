@@ -4,14 +4,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using static Structs;
 
-public class StorageUI : MonoBehaviour
+public class StorageUI : FirstPersonInteractableUI
 {
-    [SerializeField] private UnityEvent m_DisplayEvent;
-    [SerializeField] private UnityEvent m_HideEvent;
     [SerializeField] private GameObject m_ItemLayout;
     [SerializeField] private GameObject m_ItemLayoutElementPrefab;
     [SerializeField] private StorageManager m_StorageManager;
-    public void DisplayStorageUI()
+    public override void DisplayUI()
     {
         m_DisplayEvent.Invoke();
         ClearDisplay();
