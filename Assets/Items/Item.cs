@@ -15,7 +15,6 @@ public class Item : ScriptableObject, IComparable<Item>
             return 1;
 
         return ID.CompareTo(other.ID);
-
-        throw new NotImplementedException();
     }
 }
+

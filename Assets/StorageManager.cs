@@ -31,15 +31,24 @@ public class StorageManager : MonoBehaviour
         }
     }
 
-    public void RemoveItems(List<Item> items)
+    public void RemoveItems(List<KeyValuePair<Item,int>> items)
     {
-        foreach (Item item in items)
+        foreach (KeyValuePair<Item, int> item in items)
         {
-            RemoveItem(item);
+            for(int i = 0; i <item.Value; i++)
+            {
+                RemoveItem(item.Key);
+            }
+
         }
     }
     private bool RemoveItem(Item item)
-    { 
+    {
+        m_Items[item]--;
+        if (m_Items[item] == 0)
+        {
+            m_Items.Remove(item);
+        }
         return false;
     }
 }

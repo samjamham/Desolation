@@ -8,4 +8,7 @@ public class FirstPersonInteractableUI : MonoBehaviour
     public virtual void DisplayUI()
     {
     }
+    public virtual void HideUI()
+    {
+    }
 }

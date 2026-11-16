@@ -18,7 +18,7 @@ public class StorageUI : FirstPersonInteractableUI
             CreateItemDisplay(item);
         }
     }
-    public void HideStorageUI()
+    public override void HideUI()
     {
         m_HideEvent.Invoke();
     }
@@ -26,7 +26,7 @@ public class StorageUI : FirstPersonInteractableUI
     private void CreateItemDisplay(KeyValuePair<Item, int> item)
     {
         GameObject prefab = GameObject.Instantiate(m_ItemLayoutElementPrefab, m_ItemLayout.transform); //Create a layout element as a child of the layout group. The group will automatically resize to fit
-        prefab.GetComponent<LayoutElementItem>().ChangeIcon(item.Key.m_Sprite);
+        prefab.GetComponent<LayoutElementItem>().SetItem(item.Key);
         prefab.GetComponent<LayoutElementItem>().SetStackSize(item.Value);
         prefab.GetComponent<ToolTipTriggerUI>().SetHeader(item.Key.name);
         prefab.GetComponent<ToolTipTriggerUI>().SetBody("");

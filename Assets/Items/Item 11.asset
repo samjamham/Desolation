@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   ID: 11
   m_Sprite: {fileID: 1822504805, guid: ac5eee10ad7bf2145a81661976a81730, type: 3}
-  m_Weight: 0
+  m_Weight: 1

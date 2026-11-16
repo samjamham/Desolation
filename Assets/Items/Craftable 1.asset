@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b71c82c735c7f4da31c622829c21b8, type: 3}
+  m_Name: Craftable 1
+  m_EditorClassIdentifier: Assembly-CSharp::Craftable
+  ID: 101
+  m_Sprite: {fileID: 1323635112, guid: ac5eee10ad7bf2145a81661976a81730, type: 3}
+  m_Weight: 1
+  ReqIngredient:
+  - Key: {fileID: 11400000, guid: d92644a17b3a2ff4784feb5ac0067639, type: 2}
+    Value: 2
+  - Key: {fileID: 11400000, guid: 76e112fb66ec1ab41ba20f13e0e90873, type: 2}
+    Value: 1

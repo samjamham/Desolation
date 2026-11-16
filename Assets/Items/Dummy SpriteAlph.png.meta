@@ -681,6 +681,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Dummy SpriteAlph_26
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 37
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30edc45791c3d34ba3387a06f8b2c74
+      internalID: 1401475700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy SpriteAlph_27
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 37
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 259f521565ddef6418986324e5f65337
+      internalID: 128145079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy SpriteAlph_28
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 37
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0288ff8dc98174e8cd8276e091f334
+      internalID: 1323635112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy SpriteAlph_29
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 0
+        width: 37
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6228c13152db54cb3589f3cbad79ad
+      internalID: -231918858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -718,6 +806,10 @@ TextureImporter:
       Dummy SpriteAlph_23: -446224082
       Dummy SpriteAlph_24: 658690849
       Dummy SpriteAlph_25: -1886248178
+      Dummy SpriteAlph_26: 1401475700
+      Dummy SpriteAlph_27: 128145079
+      Dummy SpriteAlph_28: 1323635112
+      Dummy SpriteAlph_29: -231918858
       Dummy SpriteAlph_3: 824906648
       Dummy SpriteAlph_4: -525632750
       Dummy SpriteAlph_5: -2022024559
