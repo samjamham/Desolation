@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CraftingUI : FirstPersonInteractableUI
 {
-    private Craftable m_currentItem;
+    private Craftable m_CurrentCraftable;
     [SerializeField] private StorageManager m_StorageManager;
     
     [Header("Left Side")]
@@ -48,21 +48,30 @@ public class CraftingUI : FirstPersonInteractableUI
     {
         if (item is null)
             return;
+        m_CraftButton.interactable = true;
         foreach (Craftable.kvp kvp in item.ReqIngredient)
         {
-            CreateCraftingDisplayReqIngredients(kvp);
+            if (!CreateCraftingDisplayReqIngredients(kvp))
+            {
+                m_CraftButton.interactable = false;
+            }
         }
         m_CraftableImage.sprite = item.m_Sprite;
         m_CraftButton.onClick.AddListener(delegate { CRAFT(); }) ;
-        m_currentItem = item;
+        m_CurrentCraftable = item;
     }
-    private void CreateCraftingDisplayReqIngredients(Craftable.kvp item)
+    private bool CreateCraftingDisplayReqIngredients(Craftable.kvp item)
     {
         GameObject prefab = GameObject.Instantiate(m_ItemLayoutElementPrefab, m_ItemLayout.transform); //Create a layout element as a child of the layout group. The group will automatically resize to fit
         prefab.GetComponent<LayoutElementItem>().SetItem(item.Key);
         prefab.GetComponent<ToolTipTriggerUI>().SetHeader(item.Key.name);
         prefab.GetComponent<LayoutElementItem>().SetStackSize(item.Value);
         prefab.GetComponent<ToolTipTriggerUI>().SetBody("");
+
+
+
+        return m_StorageManager.HasItem(new KeyValuePair<Item, int>(item.Key, item.Value));
+
     }
 
     private void ClearDisplay()
@@ -81,18 +90,21 @@ public class CraftingUI : FirstPersonInteractableUI
         }
         m_CraftableImage.sprite = null;
         m_CraftButton.onClick.RemoveAllListeners();
-        m_currentItem = null;
+        m_CurrentCraftable = null;
     }
 
     private void CRAFT() //ew. me no like
     {
         List<KeyValuePair<Item, int>> tempkvp = new List<KeyValuePair<Item, int>>();
-        foreach(Craftable.kvp kvp in m_currentItem.ReqIngredient)
+        foreach(Craftable.kvp kvp in m_CurrentCraftable.ReqIngredient)
         {
             KeyValuePair<Item, int> KVP = new KeyValuePair<Item, int>(kvp.Key, kvp.Value);
             tempkvp.Add(KVP);
         }
         m_StorageManager.RemoveItems(tempkvp);
-        m_StorageManager.AddItem(m_currentItem);
+        m_StorageManager.AddItem(m_CurrentCraftable);
+        Craftable temp = m_CurrentCraftable;
+        ClearCraftingDisplay();
+        CreateCraftingDisplay(temp);
     }
 }

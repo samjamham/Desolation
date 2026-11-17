@@ -31,6 +31,17 @@ public class StorageManager : MonoBehaviour
         }
     }
 
+    public bool HasItem(KeyValuePair<Item, int> item)
+    {
+        if (!m_Items.ContainsKey(item.Key))
+            return false;
+
+        if (m_Items[item.Key] < item.Value) 
+            return false;
+
+        return true;
+    }
+
     public void RemoveItems(List<KeyValuePair<Item,int>> items)
     {
         foreach (KeyValuePair<Item, int> item in items)
