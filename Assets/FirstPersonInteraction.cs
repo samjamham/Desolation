@@ -12,4 +12,8 @@ public class FirstPersonInteraction : MonoBehaviour, IFirstPersonInteractable
     {
         return canInteract;
     }
+    public void SetInteract(bool value)
+    {
+        canInteract = value;
+    }
 }
