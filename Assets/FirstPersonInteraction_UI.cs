@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class FirstPersonInteraction_UI : FirstPersonInteraction
 {
-    [SerializeField] FirstPersonInteractableUI m_UserInterface;
-    [SerializeField] GameObject m_Player;
+    [SerializeField] protected FirstPersonInteractableUI m_UserInterface;
+    [SerializeField] protected GameObject m_Player;
 
     protected void DisplayUI()
     {

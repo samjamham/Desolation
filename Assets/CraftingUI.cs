@@ -34,6 +34,10 @@ public class CraftingUI : FirstPersonInteractableUI
     {
         m_HideEvent.Invoke();
     }
+    public void SetCraftables(Craftable[] CraftableArray)
+    {
+        m_Craftables = CraftableArray;
+    }
     private void CreateCraftableDisplay(Craftable item)
     {
         GameObject prefab = GameObject.Instantiate(m_CraftableLayoutElementPrefab, m_CraftableLayout.transform); //Create a layout element as a child of the layout group. The group will automatically resize to fit
