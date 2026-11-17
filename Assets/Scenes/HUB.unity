@@ -4375,7 +4375,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4394,6 +4394,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   canInteract: 1
+  m_Renderer: {fileID: 746821195}
+  m_Collider: {fileID: 312669059}
+  m_StorageManager: {fileID: 669868011}
+  m_ReqItems:
+  - Key: {fileID: 11400000, guid: 29fb8fb738cddb6429bcd617d8cf4fe7, type: 2}
+    Value: 1
+  - Key: {fileID: 11400000, guid: 2dbb8c29db64fee4893cfa11fe772cee, type: 2}
+    Value: 1
 --- !u!1 &322993220
 GameObject:
   m_ObjectHideFlags: 0
