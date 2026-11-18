@@ -333,6 +333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScavPartyB
       objectReference: {fileID: 0}
+    - target: {fileID: 965659571272959151, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1029190362234015092, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: canInteract
       value: 1
@@ -4777,6 +4781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScavPartyC
       objectReference: {fileID: 0}
+    - target: {fileID: 965659571272959151, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1029190362234015092, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: canInteract
       value: 1
@@ -5951,6 +5959,10 @@ PrefabInstance:
     - target: {fileID: 965659571272959151, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_Name
       value: ScavPartyA
+      objectReference: {fileID: 0}
+    - target: {fileID: 965659571272959151, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1029190362234015092, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: canInteract

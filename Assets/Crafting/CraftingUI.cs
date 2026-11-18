@@ -22,9 +22,11 @@ public class CraftingUI : FirstPersonInteractableUI
     [Header("")]
     [SerializeField] private Craftable[] m_Craftables;
     public override void DisplayUI()
-    {
+    {        
+        m_CraftButton.interactable = false;
         m_DisplayEvent.Invoke();
         ClearDisplay();
+
         foreach (Craftable item in m_Craftables)
         {
             CreateCraftableDisplay(item);
@@ -33,6 +35,7 @@ public class CraftingUI : FirstPersonInteractableUI
     public override void HideUI()
     {
         m_HideEvent.Invoke();
+        ClearDisplay();
     }
     public void SetCraftables(Craftable[] CraftableArray)
     {
@@ -61,7 +64,7 @@ public class CraftingUI : FirstPersonInteractableUI
             }
         }
         m_CraftableImage.sprite = item.m_Sprite;
-        m_CraftButton.onClick.AddListener(delegate { CRAFT(); }) ;
+        //m_CraftButton.onClick.AddListener(delegate { CRAFT(); }) ;
         m_CurrentCraftable = item;
     }
     private bool CreateCraftingDisplayReqIngredients(Craftable.kvp item)
@@ -82,6 +85,7 @@ public class CraftingUI : FirstPersonInteractableUI
     {
         for (int i = m_CraftableLayout.transform.childCount - 1; i >= 0; i--)
         {
+            m_CraftableLayout.transform.GetChild(i).GetComponent<Toggle>().onValueChanged.RemoveAllListeners();
             Destroy(m_CraftableLayout.transform.GetChild(i).gameObject);
         }
         ClearCraftingDisplay();
@@ -97,7 +101,7 @@ public class CraftingUI : FirstPersonInteractableUI
         m_CurrentCraftable = null;
     }
 
-    private void CRAFT() //ew. me no like
+    public void CRAFT() //ew. me no like
     {
         List<KeyValuePair<Item, int>> tempkvp = new List<KeyValuePair<Item, int>>();
         foreach(Craftable.kvp kvp in m_CurrentCraftable.ReqIngredient)

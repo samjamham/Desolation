@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.Rendering;
 using static UnityEngine.Rendering.DebugUI;
 
-[CreateAssetMenu(fileName = "Craftable", menuName = "Scriptable Objects/Craftable")]
+[CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Items/Craftable")]
 public class Craftable : Item
 {
     [Serializable]

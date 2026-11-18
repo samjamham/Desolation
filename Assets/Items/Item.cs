@@ -2,7 +2,7 @@ using System;
 using UnityEditor.UIElements;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Item")]
+[CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Items/Item")]
 public class Item : ScriptableObject, IComparable<Item>
 {
     [SerializeField] private int ID;

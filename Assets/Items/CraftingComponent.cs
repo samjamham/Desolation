@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Component", menuName = "Scriptable Objects/Component")]
-public class Component : Item
+[CreateAssetMenu(fileName = "CraftingComponent", menuName = "Scriptable Objects/CraftingComponent")]
+public class CraftingComponent : Item
 {
     int ID;
 }
