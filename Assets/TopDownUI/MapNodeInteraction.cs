@@ -4,12 +4,10 @@ public class MapNodeInteraction : TopDownInteraction
 {
     [SerializeField] protected ToolTipTriggerMap m_ToolTipTriggerMap;
     protected AStarNode m_MyNode;
-    protected ScavLocationUI m_LocationUI;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected NodeUI m_LocationUI;
+    protected void NodeSetup()
     {
         m_MyNode = GetComponent<AStarNode>();
-        m_LocationUI = GameObject.FindGameObjectWithTag("ScavLocationUI").GetComponent<ScavLocationUI>();
         FindController();
     }
     public AStarNode GetNode()
@@ -32,7 +30,7 @@ public class MapNodeInteraction : TopDownInteraction
     {
         m_Controller.SetSelection(this);
     }
-    public override void InteractAlt()
+    public override void InteractAlt() //RightClick. Only used when current selection is a ScavParty
     {
         TopDownInteraction TDint = m_Controller.GetSelection();
         if (TDint is not null && TDint is ScavPartyInteraction)
@@ -45,10 +43,10 @@ public class MapNodeInteraction : TopDownInteraction
     }
     public override void OnSelected()
     {
-        m_LocationUI?.DisplayScavLocationUI(gameObject.GetComponent<ScavLocation>().GetFoundItems());
+        m_LocationUI?.DisplayUI();
     }
     public override void OnDeselected()
     {
-        m_LocationUI?.HideScavLocationUI();
+        m_LocationUI?.HideUI();
     }
 }

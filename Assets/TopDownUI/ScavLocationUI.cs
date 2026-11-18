@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class ScavLocationUI : TopDownUI
+public class ScavLocationUI : NodeUI
 {
     [SerializeField] private GameObject m_Layout;
     [SerializeField] private GameObject m_LayoutElementPrefab;

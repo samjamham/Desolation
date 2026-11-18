@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HomeNodeUI : TopDownUI
+public class HomeNodeUI : NodeUI
 {
     [SerializeField] private GameObject m_ToggleGroup;
     [SerializeField] private Sprite m_ClearImage;

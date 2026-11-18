@@ -225,8 +225,8 @@ GameObject:
   - component: {fileID: 7076641973394222373}
   - component: {fileID: 832504720510251462}
   - component: {fileID: 1919655833569125056}
-  - component: {fileID: 103460089846496907}
   - component: {fileID: 5717875141714714801}
+  - component: {fileID: 1039260133553707002}
   m_Layer: 0
   m_Name: Node
   m_TagString: Untagged
@@ -283,9 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46fbc3fd23733ff42ab89ada21f2db73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerMap
-  header: 
-  body: 
-  DisplayDelay: 0
+  m_Header: 
+  m_Body: 
+  m_DisplayDelay: 0
 --- !u!114 &1919655833569125056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,21 +300,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   Neighbours: []
   Parent: {fileID: 0}
---- !u!114 &103460089846496907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8680265548442075283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e215fea097d98d429b781529f084001, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapNodeInteraction
-  canInteract: 1
-  m_Controller: {fileID: 0}
-  m_ToolTipTriggerMap: {fileID: 832504720510251462}
 --- !u!114 &5717875141714714801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,3 +314,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   m_Items:
   - {fileID: 11400000, guid: d92644a17b3a2ff4784feb5ac0067639, type: 2}
+--- !u!114 &1039260133553707002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680265548442075283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5c5d825e4f7154cb48324d65f02881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScavLocationInteraction
+  canInteract: 1
+  m_Controller: {fileID: 0}
+  m_ToolTipTriggerMap: {fileID: 832504720510251462}
