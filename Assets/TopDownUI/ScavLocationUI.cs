@@ -38,6 +38,4 @@ public class ScavLocationUI : NodeUI
             Destroy(m_Layout.transform.GetChild(i).gameObject);
         }
     }
-
-
 }

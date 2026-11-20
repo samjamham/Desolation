@@ -4,12 +4,11 @@ using UnityEngine;
 public class ClippingCube : MonoBehaviour
 {
     [SerializeField] private Vector3 ClipDistance;
-    //[SerializeField] private Material[] Materials;
+    Vector4[] Planes = new Vector4[6];
 
     // Update is called once per frame
     void Update()
     {
-        Vector4[] Planes = new Vector4[6];
         for (int i = 0; i < 6; i++)
         {
             Transform child = transform.GetChild(i);

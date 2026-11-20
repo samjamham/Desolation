@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,7 @@ public class CraftingInteraction : FirstPersonInteraction_UI
     {
         Debug.Log("Hi I'm a Crafting");
         CraftingUI temp = m_UserInterface as CraftingUI;
-        temp.SetCraftables(m_Craftables);
+        temp.SetCraftables(m_Craftables.ToList());
         DisplayUI();
     }
 }

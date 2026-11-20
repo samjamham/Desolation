@@ -21393,6 +21393,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2033763885}
     m_Modifications:
+    - target: {fileID: 3359782490900257143, guid: 258f1a40a432e124f8bf905c6307ced8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5219040088158512756, guid: 258f1a40a432e124f8bf905c6307ced8, type: 3}
       propertyPath: m_Name
       value: Table

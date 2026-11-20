@@ -20,7 +20,7 @@ public class CraftingUI : FirstPersonInteractableUI
     [SerializeField] private GameObject m_ItemLayoutElementPrefab;
 
     [Header("")]
-    [SerializeField] private Craftable[] m_Craftables;
+    [SerializeField] private List<Craftable> m_Craftables;
     public override void DisplayUI()
     {        
         m_CraftButton.interactable = false;
@@ -37,7 +37,7 @@ public class CraftingUI : FirstPersonInteractableUI
         m_HideEvent.Invoke();
         ClearDisplay();
     }
-    public void SetCraftables(Craftable[] CraftableArray)
+    public void SetCraftables(List<Craftable> CraftableArray)
     {
         m_Craftables = CraftableArray;
     }
@@ -70,14 +70,16 @@ public class CraftingUI : FirstPersonInteractableUI
     private bool CreateCraftingDisplayReqIngredients(Craftable.kvp item)
     {
         GameObject prefab = GameObject.Instantiate(m_ItemLayoutElementPrefab, m_ItemLayout.transform); //Create a layout element as a child of the layout group. The group will automatically resize to fit
-        prefab.GetComponent<LayoutElementItem>().SetItem(item.Key);
+        prefab.GetComponent<LayoutElementItem>().SetItem(item.Key);       
+        prefab.GetComponent<LayoutElementItem>().SetStackSize(item.Value); 
         prefab.GetComponent<ToolTipTriggerUI>().SetHeader(item.Key.name);
-        prefab.GetComponent<LayoutElementItem>().SetStackSize(item.Value);
         prefab.GetComponent<ToolTipTriggerUI>().SetBody("");
-
-
-
-        return m_StorageManager.HasItem(new KeyValuePair<Item, int>(item.Key, item.Value));
+        bool ItemInStorage = m_StorageManager.HasItem(new KeyValuePair<Item, int>(item.Key, item.Value));
+        if (!ItemInStorage)
+        {
+            prefab.GetComponent<LayoutElementItem>().SetColour(Color.red);
+        }
+        return ItemInStorage;
 
     }
 

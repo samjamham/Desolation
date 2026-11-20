@@ -14,7 +14,6 @@ public class ScavLocation : MonoBehaviour
 
             list.Add(m_Items[Random.Range(0, m_Items.Length)]);
         }
-
         return list;
     }
 

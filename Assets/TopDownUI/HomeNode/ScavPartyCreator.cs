@@ -27,7 +27,7 @@ public class ScavPartyCreator : MonoBehaviour
 
     public void OpenDwellerMenu(int value)
     {
-        Toggle[] index = m_ToggleGroup.ActiveToggles().ToArray<Toggle>();
+        List<Toggle> index = m_ToggleGroup.ActiveToggles().ToList();
         if (index.Count() == 0)
         { 
             CloseDwellerMenu();
