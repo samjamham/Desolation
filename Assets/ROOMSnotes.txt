@@ -1,9 +1,9 @@
-◯ - Added | semi Added / ⛌ - Will add | ? - Might add
+◯ - Added / Semi Added | ⛌ - Will add | ? - Might add
 
 ◯	Scry room
-◯	Personal Chambers
+⛌	Personal Chambers
 ◯	Pantry
-⛌	Crafting
+◯	Crafting
 ◯	Storage
 ◯	Water purifier
 ⛌	Bedroom(s)
@@ -12,6 +12,7 @@
 ?	Barracks
 
 
+----------------------------------------------------------------------------
 
 
 
