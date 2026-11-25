@@ -1,6 +1,7 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class DEBUGDwellerList : MonoBehaviour
 {
-    public Dweller[] m_Dwellers;
+    public List<Dweller> m_Dwellers;
 }

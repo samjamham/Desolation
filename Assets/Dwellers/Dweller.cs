@@ -11,4 +11,6 @@ public class Dweller : ScriptableObject
     public int m_Stat4;
     public int m_Stat5;
     public int m_Stat6;
+    public bool m_IsInjured;
+    public bool m_IsActive;
 }

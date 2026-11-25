@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public static PlayerManager instance { get; private set; }
+    public static PlayerManager s_Instance { get; private set; }
     public enum Playmode
     {
         FirstPerson,
@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        s_Instance = this;
     }
 
     public static void ChangePlayMode(Playmode value)

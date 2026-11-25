@@ -14,12 +14,14 @@ public class ScavParty : MonoBehaviour
 
     private void Start()
     {
-        GameObject.FindGameObjectWithTag("CycleManager").GetComponent<CycleManager>().m_CyclProgess.AddListener(OnCycleChange);
+        GameObject.FindGameObjectWithTag("CycleManager").GetComponent<CycleManager>().m_CycleProgess.AddListener(OnCycleChange);
+        GameObject.FindGameObjectWithTag("CycleManager").GetComponent<CycleManager>().m_DayProgess.AddListener(OnDayChange);
         m_WilActivateAtNight = false;
     }
     private void OnApplicationQuit()
     {
-        GameObject.FindGameObjectWithTag("CycleManager").GetComponent<CycleManager>().m_CyclProgess.RemoveListener(OnCycleChange);
+        GameObject.FindGameObjectWithTag("CycleManager").GetComponent<CycleManager>().m_CycleProgess.RemoveListener(OnCycleChange);
+        GameObject.FindGameObjectWithTag("CycleManager").GetComponent<CycleManager>().m_DayProgess.RemoveListener(OnDayChange);
     }
     public Structs.ScavParty GetScavParty() 
     { 
@@ -43,9 +45,6 @@ public class ScavParty : MonoBehaviour
     }
     public void OnCycleChange(bool IsNight)
     {
-        IEnumerable<Dweller> NonNull = m_ScavParty.dwellers.Where(x => x != null);
-        ConsumeFood(NonNull.Count());
-        ConsumeWater(NonNull.Count());
         if (IsNight && !m_WilActivateAtNight)
         {
             //Go into CampMode
@@ -62,6 +61,13 @@ public class ScavParty : MonoBehaviour
         }
         m_Navi.MoveToNextNode();
     }
+    public void OnDayChange()
+    {
+        IEnumerable<Dweller> NonNull = m_ScavParty.dwellers.Where(x => x != null);
+        ConsumeFood(NonNull.Count());
+        ConsumeWater(NonNull.Count());
+    }
+
     public void ConsumeFood(int Amount)
     {        
         m_ScavParty.remainingFood -= Amount;

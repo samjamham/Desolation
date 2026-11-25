@@ -2,26 +2,30 @@ using UnityEngine;
 
 public class PlayerInteractionBox : MonoBehaviour
 {
-    private IFirstPersonInteractable interactableInRange = null;
+    private IFirstPersonInteractable m_InteractableInRange = null;
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out IFirstPersonInteractable interactable) && interactable.CanInteract())
         {
-            interactableInRange = interactable;
+            m_InteractableInRange?.OnCandidateInteractable(false); //Clear previous candidate so it's impossible to have 2+ candidates active at a time
+            interactable.OnCandidateInteractable(true);
+            m_InteractableInRange = interactable;
+            
             //InteractionIcon.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out IFirstPersonInteractable interactable) && interactable == interactableInRange)
+        if (other.TryGetComponent(out IFirstPersonInteractable interactable) && interactable == m_InteractableInRange)
         {
-            interactableInRange = null;
+            m_InteractableInRange = null;
+            interactable.OnCandidateInteractable(false);
             //InteractionIcon.SetActive(false);
         }
     }
 
     public void Interact()
     {
-        interactableInRange?.Interact();
+        m_InteractableInRange?.Interact();
     }
 }

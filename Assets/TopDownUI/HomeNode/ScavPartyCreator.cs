@@ -13,6 +13,7 @@ public class ScavPartyCreator : MonoBehaviour
     [SerializeField] private GameObject m_DwellerLayoutPrefab;
     [SerializeField] ToggleGroup m_ToggleGroup;
     [SerializeField] private Sprite m_DefualtSpirte;
+    [SerializeField] private DwellerManager m_DwellerManager;
 
     [Header("ScavPartyViewerForDebug")]
     [SerializeField] private Dweller[] m_DwellerSelection;
@@ -42,7 +43,7 @@ public class ScavPartyCreator : MonoBehaviour
         if (m_DwellerSelection[value] is not null)
             CreateLayoutDisplay(null);
 
-        foreach (Dweller D in gameObject.GetComponent<DEBUGDwellerList>().m_Dwellers)
+        foreach (Dweller D in m_DwellerManager.m_DwellerList)
         {
             if (m_DwellerSelection.Contains(D))
                 continue;

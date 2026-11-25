@@ -16,4 +16,8 @@ public class FirstPersonInteraction : MonoBehaviour, IFirstPersonInteractable
     {
         canInteract = value;
     }
+    public virtual void OnCandidateInteractable(bool value)
+    {
+
+    }
 }

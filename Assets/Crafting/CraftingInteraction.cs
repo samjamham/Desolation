@@ -1,11 +1,11 @@
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class CraftingInteraction : FirstPersonInteraction_UI
 {
     [Header("")]
-    [SerializeField] private Craftable[] m_Craftables;
+    [SerializeField] private List<Craftable> m_Craftables;
     public override void Interact()
     {
         Debug.Log("Hi I'm a Crafting");

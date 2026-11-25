@@ -8,7 +8,8 @@ public class BarrierInteraction : FirstPersonInteraction
 
     [Header("")]
     [SerializeField] StorageManager m_StorageManager;
-    [SerializeField] Craftable.kvp[] m_ReqItems;
+    [SerializeField] List<Craftable.kvp> m_ReqItems;
+    [SerializeField] BarrierWorldUI m_BarrierUI;
     public override void Interact()
     {
         foreach (Craftable.kvp item in m_ReqItems)
@@ -34,5 +35,18 @@ public class BarrierInteraction : FirstPersonInteraction
         m_Renderer.gameObject.SetActive(false);
         m_Collider.gameObject.SetActive(false);
         SetInteract(false);
+    }
+
+    public override void OnCandidateInteractable(bool value)
+    {
+        if (value)
+        {
+            m_BarrierUI.ShowUI(m_ReqItems);
+        }
+        else
+        {
+            m_BarrierUI.HideUI();
+        }
+        
     }
 }
