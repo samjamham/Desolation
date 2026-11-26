@@ -12708,6 +12708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 924773999}
   - component: {fileID: 924774000}
+  - component: {fileID: 924774001}
   m_Layer: 0
   m_Name: Toggle (0)
   m_TagString: Untagged
@@ -12796,6 +12797,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &924774001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924773998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e9756db65ab6142989a84f4eb8b6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerUI
+  m_Header: 
+  m_Body: 
+  m_DisplayDelay: 0
 --- !u!1 &925459801
 GameObject:
   m_ObjectHideFlags: 0
@@ -22677,6 +22693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582087112}
   - component: {fileID: 1582087113}
+  - component: {fileID: 1582087114}
   m_Layer: 0
   m_Name: Toggle (2)
   m_TagString: Untagged
@@ -22765,6 +22782,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1582087114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582087111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e9756db65ab6142989a84f4eb8b6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerUI
+  m_Header: 
+  m_Body: 
+  m_DisplayDelay: 0
 --- !u!1 &1583207318
 GameObject:
   m_ObjectHideFlags: 0
@@ -26944,6 +26976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916590607}
   - component: {fileID: 1916590608}
+  - component: {fileID: 1916590609}
   m_Layer: 0
   m_Name: Toggle (3)
   m_TagString: Untagged
@@ -27032,6 +27065,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1916590609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916590606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e9756db65ab6142989a84f4eb8b6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerUI
+  m_Header: 
+  m_Body: 
+  m_DisplayDelay: 0
 --- !u!1 &1924740437
 GameObject:
   m_ObjectHideFlags: 0
@@ -27548,6 +27596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1950908648}
   - component: {fileID: 1950908649}
+  - component: {fileID: 1950908650}
   m_Layer: 0
   m_Name: Toggle (1)
   m_TagString: Untagged
@@ -27636,6 +27685,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1950908650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950908647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e9756db65ab6142989a84f4eb8b6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolTipTriggerUI
+  m_Header: 
+  m_Body: 
+  m_DisplayDelay: 0
 --- !u!1 &1966513333
 GameObject:
   m_ObjectHideFlags: 0
@@ -29856,11 +29920,16 @@ MonoBehaviour:
   m_Dwellers:
   - {fileID: 11400000, guid: 568650c34ca6ae64c9c76adfdbf7c4cb, type: 2}
   - {fileID: 11400000, guid: c7dcad11e4e3a9947a03e17e2fd7f5fd, type: 2}
+  - {fileID: 11400000, guid: 4a3438152b578ba4ea1d1e18e44ebe94, type: 2}
+  - {fileID: 11400000, guid: 62abd4c0fe5efb349a0ea5b033290cbc, type: 2}
   - {fileID: 11400000, guid: 3fce2f4df6317bf458081e7ce5aa415b, type: 2}
   - {fileID: 11400000, guid: 7e6a36a1b42bb6b48a4f6102e6bbb1bd, type: 2}
+  - {fileID: 11400000, guid: fb7664c12d01d104096a26a41959bb21, type: 2}
   - {fileID: 11400000, guid: 65d2921dd8f03e546a0b2d4a4001eddc, type: 2}
+  - {fileID: 11400000, guid: a806996ed9c26b141b063515a85a786d, type: 2}
   - {fileID: 11400000, guid: dfca58953ba3dfc4bbc4ad27436949ae, type: 2}
   - {fileID: 11400000, guid: 3190ab88fc2794947bc1e4f896a3a73b, type: 2}
+  - {fileID: 11400000, guid: eba9d51a0b070e940ae9e1e654e99642, type: 2}
 --- !u!114 &2102695080
 MonoBehaviour:
   m_ObjectHideFlags: 0

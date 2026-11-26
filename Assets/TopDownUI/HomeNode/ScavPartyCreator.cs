@@ -45,7 +45,7 @@ public class ScavPartyCreator : MonoBehaviour
 
         foreach (Dweller D in m_DwellerManager.m_DwellerList)
         {
-            if (m_DwellerSelection.Contains(D))
+            if (m_DwellerSelection.Contains(D) || D.m_IsActive)
                 continue;
             CreateLayoutDisplay(D);
         }
@@ -66,9 +66,11 @@ public class ScavPartyCreator : MonoBehaviour
         if (dweller is null)
         {
             m_ToggleGroup.GetFirstActiveToggle().transform.GetChild(0).GetComponent<Image>().sprite = m_DefualtSpirte;
+            m_ToggleGroup.GetFirstActiveToggle().GetComponent<ToolTipTriggerUI>().SetHeader("");
             return; 
         }
         m_ToggleGroup.GetFirstActiveToggle().transform.GetChild(0).GetComponent<Image>().sprite = dweller.m_Sprite;
+        m_ToggleGroup.GetFirstActiveToggle().GetComponent<ToolTipTriggerUI>().SetHeader(dweller.name);
     }
     public void ClearDwellers()
     {
@@ -81,13 +83,20 @@ public class ScavPartyCreator : MonoBehaviour
 
         prefab.GetComponent<Button>().onClick.AddListener(delegate { SetDweller(D); });
         prefab.GetComponent<Button>().onClick.AddListener(delegate { CloseDwellerMenu(); }) ;
-        if (D is null)
+        prefab.GetComponent<Button>().onClick.AddListener(delegate { ToolTipSystem.Hide(); }) ;
+        
+        if (D is null) //null for when we want to clear a potential party member
         {
             prefab.GetComponent<Image>().sprite = m_DefualtSpirte;
+            prefab.GetComponent<ToolTipTriggerUI>().SetHeader("Remove");
             return;
         }
-
+        if (D.m_IsInjured)
+        {
+            prefab.GetComponent<Button>().interactable = false;
+        }
         prefab.GetComponent<Image>().sprite = D.m_Sprite;
+        prefab.GetComponent<ToolTipTriggerUI>().SetHeader(D.name);
     }
 
     private void ClearLayoutDisplay()
@@ -105,8 +114,12 @@ public class ScavPartyCreator : MonoBehaviour
         if (NonNull.Count() == 0)
             return;
         SP.dwellers = NonNull.ToArray();
-        SP.remainingFood = (int)m_FoodSlider.value;
-        SP.remainingWater = (int)m_WaterSlider.value;
+        foreach(Dweller dweller in SP.dwellers)
+        {
+            dweller.m_IsActive = true;
+        }
+        SP.remainingFood = (int)m_FoodSlider.value; //Remove from water
+        SP.remainingWater = (int)m_WaterSlider.value; //Remove from Food
 
         m_ScryMap.CreateScavParty(SP);
         m_HomeNodeUI.DeseletInteractable();

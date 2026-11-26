@@ -76,6 +76,13 @@ public class MapController : MonoBehaviour
         }
         GameObject ToDelete = m_CurrentSelection.gameObject;
         SMD.Additems(m_CurrentSelection.GetComponent<ScavParty>().GetScavItems());
+        foreach(Dweller dweller in  m_CurrentSelection.GetComponent<ScavParty>().GetScavParty().dwellers)
+        {
+            if (dweller is not  null) 
+            {
+                dweller.m_IsActive = false;
+            }
+        }
         SetSelection(null);
         SetHovered(null);
         Destroy(ToDelete);

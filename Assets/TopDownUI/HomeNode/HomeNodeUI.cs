@@ -1,4 +1,5 @@
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,9 @@ public class HomeNodeUI : NodeUI
         {
             t.GetChild(0).GetComponent<Image>().sprite = m_ClearImage;
         }
+        Toggle temp = m_ToggleGroup.GetComponent<ToggleGroup>().GetFirstActiveToggle();
+        if (temp is not null)
+            temp.isOn = false;
         m_Creator.ClearDwellers();
     }
 }
