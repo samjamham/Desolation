@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class UntreatedInteraction : FirstPersonInteraction
 {
-    [SerializeField] private WaterTower myWaterTower;
+    [SerializeField] private WaterTower m_WaterTower;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,7 +15,7 @@ public class UntreatedInteraction : FirstPersonInteraction
     }
     public override void Interact()
     {
-        Debug.Log($"Hello I'm Untreated I have {myWaterTower.currentVolume} out of {myWaterTower.capacity}: ({myWaterTower.currentVolume / myWaterTower.capacity * 100}%)");
+        Debug.Log($"Hello I'm Untreated I have {m_WaterTower.m_CurrentVolume} out of {m_WaterTower.m_Capacity}: ({m_WaterTower.m_CurrentVolume / m_WaterTower.m_Capacity * 100}%)");
     }
 
 }
