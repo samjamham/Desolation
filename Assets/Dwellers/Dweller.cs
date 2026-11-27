@@ -5,13 +5,17 @@ public class Dweller : ScriptableObject
 {
     public Sprite m_Sprite;
     public Mesh m_Mesh;
-    public int ID;
-    [Range(0,100)] public float m_Stat_DangerCounter;
-    public int m_Stat2;
-    public int m_Stat3;
-    public int m_Stat4;
-    public int m_Stat5;
-    public int m_Stat6;
+    public int m_ID;
+    public Structs.DwellerStats m_BaseStats;
+    public Equipment m_Equipment;
     public bool m_IsInjured;
     public bool m_IsActive;
+
+    public Structs.DwellerStats GetModifiedStats()
+    {
+        if (m_Equipment is not null)
+            return m_BaseStats + m_Equipment.m_ModifiedStats;
+
+        return m_BaseStats;
+    }
 }

@@ -1,9 +1,6 @@
 using System;
-using UnityEditor.UIElements;
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
-using static UnityEngine.Rendering.DebugUI;
 
 [CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Items/Craftable")]
 public class Craftable : Item

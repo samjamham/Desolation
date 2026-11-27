@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character
   m_Sprite: {fileID: 2077817957, guid: a974ef054f0571846b502de0e6d5ce07, type: 3}
   m_Mesh: {fileID: 0}
-  m_Stat_DangerCounter: 0
-  m_Stat2: 0
-  m_Stat3: 0
-  m_Stat4: 0
-  m_Stat5: 0
-  m_Stat6: 0
+  m_ID: 0
+  m_BaseStats:
+    m_Stat_DangerCounter: 40
+    m_Stat2: 0
+    m_Stat3: 0
+    m_Stat4: 0
+    m_Stat5: 0
+    m_Stat6: 0
+  m_Equipment: {fileID: 0}
   m_IsInjured: 0
   m_IsActive: 0

@@ -14,7 +14,7 @@ public class DEBUGScavParty : MonoBehaviour
         Dweller[] dwellers = new Dweller[4];
         foreach(Dweller D in m_ScavParty.dwellers)
         {
-            dwellers[i] = m_DwellerManger.m_DwellerList.Find(x => x.ID == D.ID);
+            dwellers[i] = m_DwellerManger.m_DwellerList.Find(x => x.m_ID == D.m_ID);
             dwellers[i].m_IsActive = true;
             i++;
         }

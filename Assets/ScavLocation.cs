@@ -38,7 +38,7 @@ public class ScavLocation : MonoBehaviour
         //return (dweller.m_Stat_DangerCounter < InjureChance);
 
 
-        float chance = Mathf.Max(0, m_Danger - dweller.m_Stat_DangerCounter);
+        float chance = Mathf.Max(0, m_Danger - dweller.GetModifiedStats().m_Stat_DangerCounter);
         return (chance > Random.Range(0, 100));
     }
 }

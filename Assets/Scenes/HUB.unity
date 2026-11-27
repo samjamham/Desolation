@@ -22348,6 +22348,7 @@ MonoBehaviour:
   m_Player: {fileID: 652540277}
   m_Craftables:
   - {fileID: 11400000, guid: 9ff4dfdbf379c204e9f7da553d225202, type: 2}
+  - {fileID: 11400000, guid: 06aae09a93c8b1a4aa7eb762c1f36174, type: 2}
 --- !u!136 &1430362764
 CapsuleCollider:
   m_ObjectHideFlags: 0
