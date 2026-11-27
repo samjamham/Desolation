@@ -10,6 +10,6 @@ public class ScavLocationInteraction : MapNodeInteraction
     public override void OnSelected()
     {
         ScavLocationUI temp = m_LocationUI as ScavLocationUI;
-        temp?.DisplayScavLocationUI(gameObject.GetComponent<ScavLocation>().GetFoundItems());
+        temp?.DisplayScavLocationUI(gameObject.GetComponent<ScavLocation>().GetDiscoverableItems());
     }
 }

@@ -5,7 +5,8 @@ public class Dweller : ScriptableObject
 {
     public Sprite m_Sprite;
     public Mesh m_Mesh;
-    public int m_Stat1;
+    public int ID;
+    [Range(0,100)] public float m_Stat_DangerCounter;
     public int m_Stat2;
     public int m_Stat3;
     public int m_Stat4;

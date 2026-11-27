@@ -331,7 +331,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 965659571272959151, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_Name
-      value: DEBUGScavPartyB
+      value: DEBUGScavPartyB(OLD)
       objectReference: {fileID: 0}
     - target: {fileID: 965659571272959151, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_IsActive
@@ -2093,7 +2093,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19c552d669603d4584e67ba998144e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  m_ScavParty: {fileID: 560252674}
+  m_ScavPartyComponent: {fileID: 560252674}
+  m_ScavParty:
+    dwellers:
+    - {fileID: 11400000, guid: 568650c34ca6ae64c9c76adfdbf7c4cb, type: 2}
+    - {fileID: 11400000, guid: c7dcad11e4e3a9947a03e17e2fd7f5fd, type: 2}
+    - {fileID: 11400000, guid: 4a3438152b578ba4ea1d1e18e44ebe94, type: 2}
+    - {fileID: 11400000, guid: 62abd4c0fe5efb349a0ea5b033290cbc, type: 2}
+    remainingFood: 70
+    remainingWater: 70
+  m_DwellerManger: {fileID: 0}
 --- !u!1 &607177260
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,6 +3111,10 @@ PrefabInstance:
       propertyPath: 'Neighbours.Array.data[2]'
       value: 
       objectReference: {fileID: 2004640418}
+    - target: {fileID: 5717875141714714801, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
+      propertyPath: m_Danger
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5717875141714714801, guid: 50c82d05f149b474891097a5c03ddb8c, type: 3}
       propertyPath: m_Items.Array.size
       value: 1
@@ -4803,7 +4816,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 965659571272959151, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_Name
-      value: DEBUGScavPartyC
+      value: DEBUGScavPartyC(OLD)
       objectReference: {fileID: 0}
     - target: {fileID: 965659571272959151, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_IsActive
@@ -6046,11 +6059,11 @@ PrefabInstance:
       objectReference: {fileID: 1919655832749532177}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_ScavParty.remainingFood
-      value: 70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_ScavParty.remainingWater
-      value: 70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_ScavengedItems.Array.size
@@ -6107,19 +6120,19 @@ PrefabInstance:
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: 'm_ScavParty.dwellers.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 568650c34ca6ae64c9c76adfdbf7c4cb, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: 'm_ScavParty.dwellers.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: c7dcad11e4e3a9947a03e17e2fd7f5fd, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: 'm_ScavParty.dwellers.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 4a3438152b578ba4ea1d1e18e44ebe94, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: 'm_ScavParty.dwellers.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 62abd4c0fe5efb349a0ea5b033290cbc, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964523143940786485, guid: 327c8c2e7d1634b46b4fb34ef01b4ea5, type: 3}
       propertyPath: m_ScavParty.partyMembers.Array.size
       value: 4

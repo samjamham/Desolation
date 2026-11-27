@@ -12,6 +12,7 @@ TagManager:
   - ScavLocationUI
   - HomeNodeUI
   - Nodes
+  - DwellerManager
   layers:
   - Default
   - TransparentFX

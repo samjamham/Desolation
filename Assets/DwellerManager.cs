@@ -5,12 +5,23 @@ using System.Linq;
 
 public class DwellerManager : MonoBehaviour
 {
-    public List<Dweller> m_DwellerList { get; private set; }
+    [field: SerializeField] public List<Dweller> m_DwellerList { get; private set; }
 
     private void Awake()
     {
-        m_DwellerList = GetComponent<DEBUGDwellerList>().m_Dwellers;
-
+        m_DwellerList = new List<Dweller>();
+        foreach(Dweller D in GetComponent<DEBUGDwellerList>().m_Dwellers)
+        {
+            Dweller SO = Dweller.Instantiate(D);
+            m_DwellerList.Add(SO);
+        }
+    }
+    private void OnApplicationQuit()
+    {
+        foreach (Dweller D in m_DwellerList)
+        {
+            Destroy(D);
+        }
     }
 
     void AddDweller(Dweller InDweller)
@@ -27,6 +38,10 @@ public class DwellerManager : MonoBehaviour
         return true;
     }
     void OnCycleChange()
+    {
+
+    }    
+    void OnDayChange()
     {
 
     }

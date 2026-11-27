@@ -32453,7 +32453,7 @@ GameObject:
   - component: {fileID: 2102695079}
   m_Layer: 0
   m_Name: DwellerManager
-  m_TagString: Untagged
+  m_TagString: DwellerManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32510,6 +32510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4b483d85e23aa40b9df5bbe62f2225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  <m_DwellerList>k__BackingField: []
 --- !u!1 &2104485373
 GameObject:
   m_ObjectHideFlags: 0
