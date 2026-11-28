@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BarrierInteraction : FirstPersonInteraction
 {
-    [SerializeField] MeshRenderer m_Renderer;
+    [SerializeField] MeshRenderer m_Door;
     [SerializeField] BoxCollider m_Collider;
 
     [Header("")]
@@ -32,9 +32,11 @@ public class BarrierInteraction : FirstPersonInteraction
         //////////////////////////////////////
 
         Debug.Log("Hello");
-        m_Renderer.gameObject.SetActive(false);
-        m_Collider.gameObject.SetActive(false);
+        m_Door.enabled = false;
+        m_Collider.enabled = false;
         SetInteract(false);
+        m_BarrierUI.HideUI();
+        this.enabled = false;
     }
 
     public override void OnCandidateInteractable(bool value)
