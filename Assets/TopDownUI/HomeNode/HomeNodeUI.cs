@@ -20,6 +20,7 @@ public class HomeNodeUI : NodeUI
         foreach(Transform t in m_ToggleGroup.transform)
         {
             t.GetChild(0).GetComponent<Image>().sprite = m_ClearImage;
+            t.GetComponent<ToolTipTriggerUI>().SetHeader("");
         }
         Toggle temp = m_ToggleGroup.GetComponent<ToggleGroup>().GetFirstActiveToggle();
         if (temp is not null)

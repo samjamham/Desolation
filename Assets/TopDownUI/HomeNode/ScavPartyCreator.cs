@@ -40,7 +40,7 @@ public class ScavPartyCreator : MonoBehaviour
 
         ClearLayoutDisplay();
 
-        if (m_DwellerSelection[value] is not null)
+        if (m_DwellerSelection[value] is not null) //Allow player to set the current selection to null if a Dweller is already selected in that slot. Effectively acting as a "clear" option.
             CreateLayoutDisplay(null);
 
         foreach (Dweller D in m_DwellerManager.m_DwellerList)
